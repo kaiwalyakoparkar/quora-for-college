@@ -29,6 +29,18 @@
     "url": "https://github.com/kaiwalyakoparkar/quora-for-college/issues"
   },
   "homepage": "https://github.com/kaiwalyakoparkar/quora-for-college#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "concurrently": "^6.4.0",
+    "dotenv": "^10.0.0",
+    "figlet": "^1.5.2",
+    "kill": "^0.0.2",
+    "lodash": "^4.17.21",
+    "material-ui": "^0.20.2",
+    "ngrok": "^4.2.2",
+    "path": "^0.12.7",
+    "react-router-dom": "^6.1.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^16.0.1",
     "@commitlint/config-conventional": "^16.0.0",
