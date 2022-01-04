@@ -1,0 +1,23 @@
+{
+  "name": "quora-for-college-api",
+  "version": "1.0.0",
+  "description": "This is the api for Quora for College API",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "mongoose",
+    "docker",
+    "kubernetes"
+  ],
+  "author": "Kaiwalya Koparkar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
