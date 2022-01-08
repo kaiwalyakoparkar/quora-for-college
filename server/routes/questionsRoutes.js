@@ -2,13 +2,14 @@
 const express = require('express');
 
 //--------- Importing internal modules and files ----------
-const questionsRoutes = require('./routes/questionsRoutes.js');
+const routes = express.Router();
+const questionsControllers = require('../controllers/questionsControllers.js');
 
-//--------- Variable assignment ------------------
-const app = express();
+//--------- Middlewares -----------
+routes.use(express.json());
 
 //--------- Functional code for this file ---------
-app.use('/', questionsRoutes);
+routes.route('/').get(questionsControllers.getAllQuestions);
 
 //--------- Post function Assignment ---------------
-module.exports = app;
+module.exports = routes;
