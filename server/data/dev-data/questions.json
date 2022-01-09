@@ -1,6 +1,5 @@
 [
 	{
-		"id": 0,
 		"userQuestioner": "Kaiwalya Koparkar",
 		"questionTitle": "This is a question 1",
 		"questionDescription": "This is the description of the question",
@@ -23,7 +22,6 @@
 		]
 	},
 	{
-		"id": 1,
 		"userQuestioner": "Pragati More",
 		"questionTitle": "This is a question 2",
 		"questionDescription": "This is the description of the question",
@@ -46,7 +44,6 @@
 		]
 	},
 	{
-		"id": 2,
 		"userQuestioner": "Kaiwalya Koparkar",
 		"questionTitle": "This is a question 3",
 		"questionDescription": "This is the description of the question",
