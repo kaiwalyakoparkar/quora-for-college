@@ -9,7 +9,11 @@ const questionsControllers = require('../controllers/questionsControllers.js');
 routes.use(express.json());
 
 //--------- Functional code for this file ---------
+//Route for '/'
 routes.route('/').get(questionsControllers.getAllQuestions);
+
+//Route for '/id'
+routes.route('/:id').get(questionsControllers.getSingleQuestion);
 
 //--------- Post function Assignment ---------------
 module.exports = routes;
