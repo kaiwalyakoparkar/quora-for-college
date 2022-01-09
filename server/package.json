@@ -4,7 +4,9 @@
   "description": "This is the api for Quora for College API",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "importData": "cd data/dev-data && node import-and-delete-data-script.js --import",
+    "deleteData": "cd data/dev-data && node import-and-delete-data-script.js --delete"
   },
   "keywords": [
     "nodejs",
@@ -17,9 +19,10 @@
   "author": "Kaiwalya Koparkar",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^4.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
-    "nodemon": "^2.0.15",
-    "chalk": "^4.1.2"
+    "mongoose": "^6.1.5",
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,0 +1,68 @@
+[
+	{
+		"userQuestioner": "Kaiwalya Koparkar",
+		"questionTitle": "This is a question 1",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Courses",
+		"upvotes":10,
+		"downvotes":3,
+		"answers": [
+			{
+				"userAnswerer": "Vadanya Wabale",
+				"answer": "This is the answer 1",
+				"upvotes": 16,
+				"downvotes": 13
+			},
+			{
+				"userAnswerer": "Mrunaal Chincholikar",
+				"answer": "This is the answer 2",
+				"upvotes": 24,
+				"downvotes": 1
+			}
+		]
+	},
+	{
+		"userQuestioner": "Pragati More",
+		"questionTitle": "This is a question 2",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Events",
+		"upvotes": 20,
+		"downvotes": 5,
+		"answers": [
+			{
+				"userAnswerer": "Vadanya Wabale",
+				"answer": "This is the answer 1",
+				"upvotes": 46,
+				"downvotes": 9
+			},
+			{
+				"userAnswerer": "Kaiwalya Koparkar",
+				"answer": "This is the answer 2",
+				"upvotes": 75,
+				"downvotes": 3
+			}
+		]
+	},
+	{
+		"userQuestioner": "Kaiwalya Koparkar",
+		"questionTitle": "This is a question 3",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Courses",
+		"upvotes":15,
+		"downvotes":0,
+		"answers": [
+			{
+				"userAnswerer": "Vadanya Wabale",
+				"answer": "This is the answer 1",
+				"upvotes": 16,
+				"downvotes": 13
+			},
+			{
+				"userAnswerer": "Mrunaal Chincholikar",
+				"answer": "This is the answer 2",
+				"upvotes": 24,
+				"downvotes": 1
+			}
+		]
+	}
+]

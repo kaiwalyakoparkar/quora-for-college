@@ -8,7 +8,7 @@ const questionsRoutes = require('./routes/questionsRoutes.js');
 const app = express();
 
 //--------- Functional code for this file ---------
-app.use('/', questionsRoutes);
+app.use('/api/v1/books', questionsRoutes);
 
 //--------- Post function Assignment ---------------
 module.exports = app;
