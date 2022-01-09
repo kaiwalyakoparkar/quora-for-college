@@ -4,7 +4,9 @@
   "description": "This is the api for Quora for College API",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "importData": "cd data/dev-data && node import-and-delete-data-script.js --import",
+    "deleteData": "cd data/dev-data && node import-and-delete-data-script.js --delete"
   },
   "keywords": [
     "nodejs",
