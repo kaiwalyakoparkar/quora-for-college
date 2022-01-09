@@ -1,14 +1,18 @@
+//--------- Including all the external packages -----------
 const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv').config({ path: '../../.env' });
 const fs = require('fs');
-const Project = require('../../models/questionsModel.js');
 const chalk = require('chalk');
 
-const DB = process.env.DB_STRING.replace('<PASSWORD>', process.env.DB_PASSWORD);
+//--------- Importing internal modules and files ----------
+const Project = require('../../models/questionsModel.js');
 
+//--------- Variable assignment ------------------
+const DB = process.env.DB_STRING.replace('<PASSWORD>', process.env.DB_PASSWORD);
 const log = console.log;
 
+//--------- Functional code for this file ---------
 mongoose.connect(DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
