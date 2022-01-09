@@ -30,7 +30,7 @@ const questionsSchema = new mongoose.Schema({
 		userAnswerer: {
 			type: String
 		},
-		answers: {
+		answer: {
 			type: String
 		},
 		upvotes: {
