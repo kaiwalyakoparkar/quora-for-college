@@ -1,10 +1,16 @@
-//--------- Including all the external packages -----------
-const fs = require('fs');
-const path = require('path');
-
 //--------- Importing internal modules and files ----------
-const data = require(path.join(__dirname, '../data/dev-data/testResponse.json'));
+const Questions = require('../models/questionsModel.js');
 
-exports.getAllQuestions = (req, res, next) => {
-	res.status(200).json(data);
+//--------- Functional code for this file ---------
+
+//Gets all the questions from the database
+exports.getAllQuestions = async (req, res, next) => {
+	
+	const questions = await Questions.find();
+	
+	res.status(200).json({
+		"status": "Success",
+		"result": questions.length,
+		questions
+	});
 }
