@@ -3,7 +3,7 @@
 		"userQuestioner": "Kaiwalya Koparkar",
 		"questionTitle": "This is a question 1",
 		"questionDescription": "This is the description of the question",
-		"questionTag": "Course",
+		"questionTag": "Courses",
 		"upvotes":10,
 		"downvotes":3,
 		"answers": [
@@ -47,7 +47,7 @@
 		"userQuestioner": "Kaiwalya Koparkar",
 		"questionTitle": "This is a question 3",
 		"questionDescription": "This is the description of the question",
-		"questionTag": "Course",
+		"questionTag": "Courses",
 		"upvotes":15,
 		"downvotes":0,
 		"answers": [
