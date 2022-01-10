@@ -10,7 +10,7 @@ routes.use(express.json());
 
 //--------- Functional code for this file ---------
 //Route for '/'
-routes.route('/').get(questionsControllers.getAllQuestions);
+routes.route('/').get(questionsControllers.getAllQuestions).post(questionsControllers.postNewQuestion);
 
 //Route for '/id'
 routes.route('/:id').get(questionsControllers.getSingleQuestion);

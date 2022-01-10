@@ -19,10 +19,8 @@ exports.getAllQuestions = async (req, res, next) => {
 	});
 }
 
+//Get a single question from Database with provided id
 exports.getSingleQuestion = async (req, res, next) => {
-
-	//Converting String into Number
-	// const id = req.params.id * 1;
 
 	//Fetching the Question of given Id
 	const question = await Questions.findById(req.params.id);
@@ -47,3 +45,16 @@ exports.getSingleQuestion = async (req, res, next) => {
 
 	}
 }
+
+//Posting a new question.
+exports.postNewQuestion = async (req, res, next) => {
+	const question = await Questions.create(req.body);
+
+	res.status(201).json({
+		status: "Success",
+		data: {
+			question
+		}
+	})
+};
+
