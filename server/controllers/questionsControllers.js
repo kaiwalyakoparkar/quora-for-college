@@ -69,3 +69,15 @@ exports.deleteQuestion = async (req, res, next) => {
 		}
 	})
 };
+
+//Update a Question
+exports.updateQuestion = async (req, res, next) => {
+	const question = await Questions.findByIdAndUpdate(req.params.id, req.body, {new: true});
+
+	res.status(203).json({
+		status: "Success",
+		data: {
+			question
+		}
+	});
+}
