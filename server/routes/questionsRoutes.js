@@ -13,7 +13,7 @@ routes.use(express.json());
 routes.route('/').get(questionsControllers.getAllQuestions).post(questionsControllers.postNewQuestion);
 
 //Route for '/id'
-routes.route('/:id').get(questionsControllers.getSingleQuestion);
+routes.route('/:id').get(questionsControllers.getSingleQuestion).delete(questionsControllers.deleteQuestion);
 
 //--------- Post function Assignment ---------------
 module.exports = routes;

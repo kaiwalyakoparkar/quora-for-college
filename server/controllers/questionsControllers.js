@@ -17,7 +17,7 @@ exports.getAllQuestions = async (req, res, next) => {
 			questions
 		}
 	});
-}
+};
 
 //Get a single question from Database with provided id
 exports.getSingleQuestion = async (req, res, next) => {
@@ -44,7 +44,7 @@ exports.getSingleQuestion = async (req, res, next) => {
 		});
 
 	}
-}
+};
 
 //Posting a new question.
 exports.postNewQuestion = async (req, res, next) => {
@@ -58,3 +58,14 @@ exports.postNewQuestion = async (req, res, next) => {
 	})
 };
 
+//Delete a Question
+exports.deleteQuestion = async (req, res, next) => {
+	const question = await Questions.findByIdAndDelete(req.params.id);
+
+	res.status(202).json({
+		status: "Success",
+		data: {
+			question
+		}
+	})
+};
