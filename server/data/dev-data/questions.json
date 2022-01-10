@@ -64,5 +64,27 @@
 				"downvotes": 1
 			}
 		]
+	},
+	{
+		"userQuestioner": "Mrunaal Chincholikar",
+		"questionTitle": "This is a question 4",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Jobs",
+		"upvotes":25,
+		"downvotes":5,
+		"answers": [
+			{
+				"userAnswerer": "Vadanya Wabale",
+				"answer": "This is the answer 1",
+				"upvotes": 21,
+				"downvotes": 13
+			},
+			{
+				"userAnswerer": "Kaiwalya Koparkar",
+				"answer": "This is the answer 2",
+				"upvotes": 24,
+				"downvotes": 1
+			}
+		]
 	}
 ]
