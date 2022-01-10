@@ -72,12 +72,65 @@ exports.deleteQuestion = async (req, res, next) => {
 
 //Update a Question
 exports.updateQuestion = async (req, res, next) => {
-	const question = await Questions.findByIdAndUpdate(req.params.id, req.body, {new: true});
 
-	res.status(203).json({
-		status: "Success",
-		data: {
-			question
-		}
-	});
+	if (req.body.upvotes) {
+
+		//Fetch the current values of the question
+		const upvotedQuestion = await Questions.findById(req.params.id);
+
+		//Extract the value of upvotes
+		const presentUpvotes = upvotedQuestion.upvotes;
+
+		//Add 1 to the current upvotes and store them in a variable
+		const newUpvote = presentUpvotes + 1;
+
+		//Create an object with updated upvotes
+		const upvoteObj = {upvotes: newUpvote}
+
+		//Make a patch request with modified object
+		const question = await Questions.findByIdAndUpdate(req.params.id, upvoteObj, {new: true});
+
+		//Send the updated response
+		res.status(203).json({
+			status: "Success",
+			data: {
+				question
+			}
+		});
+
+	} else if (req.body.downvotes) {
+
+		//Fetch the current values of the question
+		const downvotedQuestion = await Questions.findById(req.params.id);
+
+		//Extract the value of downvotes
+		const presentDownvotes = downvotedQuestion.downvotes;
+
+		//Add 1 to the current downvotes and store them in a variable
+		const newDownvote = presentDownvotes + 1;
+
+		//Create an object with updated downvotes
+		const downObj = {downvotes: newDownvote}
+
+		//Make a patch request with modified object
+		const question = await Questions.findByIdAndUpdate(req.params.id, downObj, {new: true});
+
+		//Send the updated response
+		res.status(203).json({
+			status: "Success",
+			data: {
+				question
+			}
+		});
+
+	} else {
+		const question = await Questions.findByIdAndUpdate(req.params.id, req.body, {new: true});
+
+		res.status(203).json({
+			status: "Success",
+			data: {
+				question
+			}
+		});
+	}
 }
