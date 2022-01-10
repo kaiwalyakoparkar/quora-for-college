@@ -86,5 +86,27 @@
 				"downvotes": 1
 			}
 		]
+	},
+	{
+		"userQuestioner": "Vadanya Wabale",
+		"questionTitle": "This is a question 5",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Sports",
+		"upvotes":25,
+		"downvotes":5,
+		"answers": [
+			{
+				"userAnswerer": "MrunaalChincholikar",
+				"answer": "This is the answer 1",
+				"upvotes": 19,
+				"downvotes": 3
+			},
+			{
+				"userAnswerer": "Kaiwalya Koparkar",
+				"answer": "This is the answer 2",
+				"upvotes": 17,
+				"downvotes": 4
+			}
+		]
 	}
 ]
