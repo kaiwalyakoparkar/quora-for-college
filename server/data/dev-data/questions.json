@@ -6,20 +6,7 @@
 		"questionTag": "Courses",
 		"upvotes":10,
 		"downvotes":3,
-		"answers": [
-			{
-				"userAnswerer": "Vadanya Wabale",
-				"answer": "This is the answer 1",
-				"upvotes": 16,
-				"downvotes": 13
-			},
-			{
-				"userAnswerer": "Mrunaal Chincholikar",
-				"answer": "This is the answer 2",
-				"upvotes": 24,
-				"downvotes": 1
-			}
-		]
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
 	},
 	{
 		"userQuestioner": "Pragati More",
@@ -28,20 +15,8 @@
 		"questionTag": "Events",
 		"upvotes": 20,
 		"downvotes": 5,
-		"answers": [
-			{
-				"userAnswerer": "Vadanya Wabale",
-				"answer": "This is the answer 1",
-				"upvotes": 46,
-				"downvotes": 9
-			},
-			{
-				"userAnswerer": "Kaiwalya Koparkar",
-				"answer": "This is the answer 2",
-				"upvotes": 75,
-				"downvotes": 3
-			}
-		]
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
 	},
 	{
 		"userQuestioner": "Kaiwalya Koparkar",
@@ -50,41 +25,6 @@
 		"questionTag": "Courses",
 		"upvotes":15,
 		"downvotes":0,
-		"answers": [
-			{
-				"userAnswerer": "Vadanya Wabale",
-				"answer": "This is the answer 1",
-				"upvotes": 16,
-				"downvotes": 13
-			},
-			{
-				"userAnswerer": "Mrunaal Chincholikar",
-				"answer": "This is the answer 2",
-				"upvotes": 24,
-				"downvotes": 1
-			}
-		]
-	},
-	{
-		"userQuestioner": "Mrunaal Chincholikar",
-		"questionTitle": "This is a question 4",
-		"questionDescription": "This is the description of the question",
-		"questionTag": "Jobs",
-		"upvotes":25,
-		"downvotes":5,
-		"answers": [
-			{
-				"userAnswerer": "Vadanya Wabale",
-				"answer": "This is the answer 1",
-				"upvotes": 21,
-				"downvotes": 13
-			},
-			{
-				"userAnswerer": "Kaiwalya Koparkar",
-				"answer": "This is the answer 2",
-				"upvotes": 24,
-				"downvotes": 1
-			}
-		]
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
 	}
 ]

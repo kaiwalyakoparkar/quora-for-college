@@ -2,21 +2,14 @@
 const mongoose = require('mongoose');
 
 //--------- Functional code for this file ---------
-const questionsSchema = new mongoose.Schema({
-	userQuestioner : {
+const answersSchema = new mongoose.Schema({
+	userAnswerer : {
 		type: String,
 		required: [true, 'The user should have a name']
 	},
-	questionTitle: {
+	answer: {
 		type: String,
-		required: [true, 'The question should have title']
-	},
-	questionDescription: String,
-	questionTag: {
-		type: String,
-		enum : ['Courses','Jobs', 'Events', 'Sports', 'Other'],
-		default: 'Courses',
-		required: [true, 'The question should have a tag']
+		required: [true, 'The answer should have minimum of 1 character']
 	},
 	upvotes: {
 		type: Number,
@@ -26,14 +19,13 @@ const questionsSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
-	answers: [String]
 },
 {
   toJSON: {virtuals: true},
   toObject: {virtuals: true}
 });
 
-const Questions = mongoose.model('Questions', questionsSchema);
+const Answers = mongoose.model('Answers', answersSchema);
 
 //--------- Post function Assignment ---------------
-module.exports = Questions;
+module.exports = Answers;

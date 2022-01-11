@@ -6,7 +6,8 @@ const fs = require('fs');
 const chalk = require('chalk');
 
 //--------- Importing internal modules and files ----------
-const Project = require('../../models/questionsModel.js');
+const Question = require('../../models/questionsModel.js');
+const Answer = require('../../models/answersModel.js');
 
 //--------- Variable assignment ------------------
 const DB = process.env.DB_STRING.replace('<PASSWORD>', process.env.DB_PASSWORD);
@@ -25,28 +26,57 @@ const questions = JSON.parse(
   fs.readFileSync(path.join(__dirname, './questions.json'), 'utf-8')
 );
 
-const importData = async () => {
+const answers = JSON.parse(
+  fs.readFileSync(path.join(__dirname, './answers.json'), 'utf-8')
+);
+
+const importQuestionsData = async () => {
   try {
-    await Project.create(questions);
-    console.log('Questions and Answers Data successfully imported');
+    await Question.create(questions);
+    console.log('Questions Data successfully imported');
   } catch (err) {
     console.log(err);
   }
   process.exit();
-};
+}
 
-const deleteData = async () => {
+const importAnswersData = async () => {
   try {
-    await Project.deleteMany();
-    console.log('Questions and Answers  Data successfully deleted');
+    await Answer.create(answers);
+    console.log('Answers Data successfully imported');
   } catch (err) {
     console.log(err);
   }
   process.exit();
-};
+}
 
-if (process.argv[2] === '--import') {
-  importData();
-} else if (process.argv[2] === '--delete') {
-  deleteData();
+const deleteQuestionsData = async () => {
+  try {
+    await Question.deleteMany();
+    console.log('Questions Data successfully deleted');
+  } catch (err) {
+    console.log(err);
+  }
+  process.exit();
+}
+
+const deleteAnswersData = async () => {
+  try {
+    await Answer.deleteMany();
+    console.log('Answers  Data successfully deleted');
+  } catch (err) {
+    console.log(err);
+  }
+  process.exit();
+}
+
+
+if (process.argv[2] === '--import' && process.argv[3] === '--questions') {
+  importQuestionsData(); //only imports questions data
+} else if (process.argv[2] === '--import' && process.argv[3] === '--answers') {
+  importAnswersData(); //only imports answers data
+} else if (process.argv[2] === '--delete' && process.argv[3] === '--questions') {
+  deleteQuestionsData(); //only deletes questions data
+} else if (process.argv[2] === '--delete' && process.argv[3] === '--answers') {
+  deleteAnswersData(); //only deletes answers data
 }
