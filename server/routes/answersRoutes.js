@@ -14,7 +14,7 @@ routes.use(express.json());
 routes.route('/').get(answersControllers.getAllAnswers);
 
 //Route for '/id'
-// routes.route('/:id').delete(answersControllers.deleteAnswer);
+routes.route('/:id').get(answersControllers.getSingleAnswer);
 
 //--------- Post function Assignment ---------------
 module.exports = routes;
