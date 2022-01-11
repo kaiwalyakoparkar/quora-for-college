@@ -11,7 +11,9 @@ routes.use(express.json());
 //--------- Functional code for this file ---------
 
 //Route for '/'
-routes.route('/').get(answersControllers.getAllAnswers);
+routes.route('/')
+	.get(answersControllers.getAllAnswers)
+	.post(answersControllers.postNewAnswer);
 
 //Route for '/id'
 routes.route('/:id')

@@ -102,3 +102,15 @@ exports.deleteAnswer = async (req, res, next) => {
 		}
 	});
 };
+
+//Posting a new answer.
+exports.postNewAnswer = async (req, res, next) => {
+	const answer = await Answers.create(req.body);
+
+	res.status(201).json({
+		status: "Success",
+		data: {
+			answer
+		}
+	})
+};
