@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "importData": "cd data/dev-data && node import-and-delete-data-script.js --import",
-    "deleteData": "cd data/dev-data && node import-and-delete-data-script.js --delete"
+    "importQuestionsData": "cd data/dev-data && node import-and-delete-data-script.js --import --questions",
+    "importAnswersData": "cd data/dev-data && node import-and-delete-data-script.js --import --answers",
+    "deleteQuestionsData": "cd data/dev-data && node import-and-delete-data-script.js --delete --questions",
+    "deleteAnswersData": "cd data/dev-data && node import-and-delete-data-script.js --delete --answers"
   },
   "keywords": [
     "nodejs",
