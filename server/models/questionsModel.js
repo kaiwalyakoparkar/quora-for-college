@@ -26,22 +26,7 @@ const questionsSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
-	answers: [{
-		userAnswerer: {
-			type: String
-		},
-		answer: {
-			type: String
-		},
-		upvotes: {
-			type: Number,
-			default: 0
-		},
-		downvotes: {
-			type: Number,
-			default: 0
-		},
-	}]
+	answers: [String]
 },
 {
   toJSON: {virtuals: true},
