@@ -90,4 +90,15 @@ exports.updateAnswer = async (req, res, next) => {
 			}
 		});
 	}
-}
+};
+
+exports.deleteAnswer = async (req, res, next) => {
+	const answer = await Answers.findByIdAndDelete(req.params.id);
+
+	res.status(202).json({
+		status: "Success",
+		data: {
+			answer
+		}
+	});
+};

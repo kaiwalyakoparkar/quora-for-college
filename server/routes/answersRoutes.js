@@ -16,7 +16,8 @@ routes.route('/').get(answersControllers.getAllAnswers);
 //Route for '/id'
 routes.route('/:id')
 	.get(answersControllers.getSingleAnswer)
-	.patch(answersControllers.updateAnswer);
+	.patch(answersControllers.updateAnswer)
+	.delete(answersControllers.deleteAnswer);
 
 //--------- Post function Assignment ---------------
 module.exports = routes;
