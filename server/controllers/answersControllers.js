@@ -1,5 +1,6 @@
 //--------- Importing internal modules and files ----------
 const Answers = require('../models/answersModel.js');
+const Questions = require('../models/questionsModel.js');
 
 //--------- Functional code for this file ---------
 
@@ -93,20 +94,52 @@ exports.updateAnswer = async (req, res, next) => {
 };
 
 exports.deleteAnswer = async (req, res, next) => {
+
+	//Answer Part
 	const answer = await Answers.findByIdAndDelete(req.params.id);
 
+	//Question Part
+	//Finding the question document which has the answer to be deleted
+	const question = await Questions.find({answers: answer.id});
+
+	//Removing the answer from the array of the question document.
+	//Creating answer object for filter and identification of the correct answer to delete
+	const answerObj = {answers: answer.id}
+
+	//Updating the question document by deleting the deleted answer
+	const updatedQuestion = await Questions.findByIdAndUpdate(question[0].id, {$pull: answerObj}, {new: true});
+
+	//Sending the response
 	res.status(202).json({
 		status: "Success",
 		data: {
-			answer
+			answer,
+			updatedQuestion
 		}
 	});
 };
 
 //Posting a new answer.
 exports.postNewAnswer = async (req, res, next) => {
+
+	// Answer Part
+	//We will add a new answer to database
 	const answer = await Answers.create(req.body);
 
+	//Take the id of the answer
+	const answerId = answer.id;
+
+	// Question Part
+	//We will receive a question id here
+	const questionId = req.params.id;
+
+	//Creating an answer object
+	const answerObj = {answers: answerId}
+
+	//Get the question & update the answer field with new answer id
+	const updatedQuestion = await Questions.findByIdAndUpdate(questionId, {$push:answerObj}, {new: true});
+
+	//Send the response
 	res.status(201).json({
 		status: "Success",
 		data: {

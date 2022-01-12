@@ -12,14 +12,14 @@ routes.use(express.json());
 
 //Route for '/'
 routes.route('/')
-	.get(answersControllers.getAllAnswers)
-	.post(answersControllers.postNewAnswer);
+	.get(answersControllers.getAllAnswers);
 
 //Route for '/id'
 routes.route('/:id')
 	.get(answersControllers.getSingleAnswer)
 	.patch(answersControllers.updateAnswer)
-	.delete(answersControllers.deleteAnswer);
+	.delete(answersControllers.deleteAnswer)
+	.post(answersControllers.postNewAnswer);
 
 //--------- Post function Assignment ---------------
 module.exports = routes;
