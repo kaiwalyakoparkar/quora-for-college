@@ -1,5 +1,6 @@
 //--------- Importing internal modules and files ----------
 const Answers = require('../models/answersModel.js');
+const Questions = require('../models/questionsModel.js');
 
 //--------- Functional code for this file ---------
 
@@ -105,8 +106,25 @@ exports.deleteAnswer = async (req, res, next) => {
 
 //Posting a new answer.
 exports.postNewAnswer = async (req, res, next) => {
+
+	// Answer Part
+	//We will add a new answer to database
 	const answer = await Answers.create(req.body);
 
+	//Take the id of the answer
+	const answerId = answer.id;
+
+	// Question Part
+	//We will receive a question id here
+	const questionId = req.params.id;
+
+	//Creating an answer object
+	const answerObj = {answers: answerId}
+
+	//Get the question & update the answer field with new answer id
+	const updatedQuestion = await Questions.findByIdAndUpdate(questionId, {$push:answerObj}, {new: true});
+
+	//Send the response
 	res.status(201).json({
 		status: "Success",
 		data: {
