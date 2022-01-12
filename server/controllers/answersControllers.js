@@ -94,12 +94,28 @@ exports.updateAnswer = async (req, res, next) => {
 };
 
 exports.deleteAnswer = async (req, res, next) => {
+
+	//Answer Part
 	const answer = await Answers.findByIdAndDelete(req.params.id);
 
+	//Question Part
+	//Finding the question document which has the answer to be deleted
+	const question = await Questions.find({answers: answer.id});
+	console.log(question[0].answers);
+
+	//Removing the answer from the array of the question document.
+	//Creating answer object for filter and identification of the correct answer to delete
+	const answerObj = {answers: answer.id}
+
+	//Updating the question document by deleting the deleted answer
+	const updatedQuestion = await Questions.findByIdAndUpdate(question[0].id, {$pull: answerObj}, {new: true});
+
+	//Sending the response
 	res.status(202).json({
 		status: "Success",
 		data: {
-			answer
+			answer,
+			updatedQuestion
 		}
 	});
 };
