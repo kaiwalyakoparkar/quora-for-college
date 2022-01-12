@@ -101,7 +101,6 @@ exports.deleteAnswer = async (req, res, next) => {
 	//Question Part
 	//Finding the question document which has the answer to be deleted
 	const question = await Questions.find({answers: answer.id});
-	console.log(question[0].answers);
 
 	//Removing the answer from the array of the question document.
 	//Creating answer object for filter and identification of the correct answer to delete
