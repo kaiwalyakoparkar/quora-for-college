@@ -29,7 +29,7 @@ exports.getSingleAnswer = async (req, res, next) => {
 	});
 };
 
-//Update a answer
+//Update a answer, upvoting and downvoting the answer
 exports.updateAnswer = async (req, res, next) => {
 	if (req.body.upvotes) {
 
@@ -93,6 +93,7 @@ exports.updateAnswer = async (req, res, next) => {
 	}
 };
 
+//Deleting an answer and it's registration from the question document
 exports.deleteAnswer = async (req, res, next) => {
 
 	//Answer Part
@@ -119,7 +120,7 @@ exports.deleteAnswer = async (req, res, next) => {
 	});
 };
 
-//Posting a new answer.
+//Posting a new answer and adding it's reference id to the question document
 exports.postNewAnswer = async (req, res, next) => {
 
 	// Answer Part
