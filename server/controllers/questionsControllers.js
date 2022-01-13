@@ -1,7 +1,7 @@
 //--------- Importing internal modules and files ----------
 const Questions = require('../models/questionsModel.js');
-const catchAsync = require('../util/catchAsync.js');
-const AppError = require('../util/appError.js');
+const catchAsync = require('../utils/catchAsync.js');
+const AppError = require('../utils/appError.js');
 
 //--------- Functional code for this file ---------
 
