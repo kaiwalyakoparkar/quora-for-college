@@ -7,11 +7,6 @@ const handleCastErrorDB = (err) => {
   return new AppError(message, 400);
 }
 
-const handleDuplicateNameDB = (err) => {
-  const message = `Book with ${err.keyValue.name} name already exists in database`;
-  return new AppError(message, 400);
-}
-
 const handleValidationErrorDB = (err) => {
   const errorMessage = Object.values(err.errors).map(el => el.message);
   const message = `${errorMessage.join('. ')}`;
@@ -66,9 +61,6 @@ module.exports = (err, req, res, next) => {
 
     //If Invalid id provided as "/:id" argument
     if(error.name === 'CastError') error = handleCastErrorDB(error);
-    
-    //If the tour name already exists in database
-    if(error.code === 11000) error = handleDuplicateNameDB(error);
 
     //If the validation in mongoose model fails
     if(error.name === 'ValidationError') error = handleValidationErrorDB(error);
