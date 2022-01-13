@@ -1,5 +1,6 @@
 PORT=8080
 DOMAIN=http://localhost
+NODE_ENV=production
 
 DB_STRING=XXXXX String provided by mongodb XXX
 DB_PASSWORD=XXXXX Password provided to mongodb XXX
