@@ -1,11 +1,13 @@
 //--------- Importing internal modules and files ----------
 const Answers = require('../models/answersModel.js');
 const Questions = require('../models/questionsModel.js');
+const catchAsync = require('../util/catchAsync.js');
+const AppError = require('../util/appError.js');
 
 //--------- Functional code for this file ---------
 
 //Get all the answers
-exports.getAllAnswers = async (req, res, next) => {
+exports.getAllAnswers = catchAsync ( async (req, res, next) => {
 	const answers = await Answers.find();
 
 	res.status(200).json({
@@ -15,10 +17,10 @@ exports.getAllAnswers = async (req, res, next) => {
 			answers
 		}
 	});
-};
+});
 
 //Get a single answer
-exports.getSingleAnswer = async (req, res, next) => {
+exports.getSingleAnswer = catchAsync ( async (req, res, next) => {
 	const answer = await Answers.findById(req.params.id);
 
 	res.status(200).json({
@@ -27,10 +29,10 @@ exports.getSingleAnswer = async (req, res, next) => {
 			answer
 		}
 	});
-};
+});
 
 //Update a answer, upvoting and downvoting the answer
-exports.updateAnswer = async (req, res, next) => {
+exports.updateAnswer = catchAsync ( async (req, res, next) => {
 	if (req.body.upvotes) {
 
 		//Fetch the current values of the answer
@@ -91,10 +93,10 @@ exports.updateAnswer = async (req, res, next) => {
 			}
 		});
 	}
-};
+});
 
 //Deleting an answer and it's registration from the question document
-exports.deleteAnswer = async (req, res, next) => {
+exports.deleteAnswer = catchAsync ( async (req, res, next) => {
 
 	//Answer Part
 	const answer = await Answers.findByIdAndDelete(req.params.id);
@@ -118,10 +120,10 @@ exports.deleteAnswer = async (req, res, next) => {
 			updatedQuestion
 		}
 	});
-};
+});
 
 //Posting a new answer and adding it's reference id to the question document
-exports.postNewAnswer = async (req, res, next) => {
+exports.postNewAnswer = catchAsync ( async (req, res, next) => {
 
 	// Answer Part
 	//We will add a new answer to database
@@ -147,4 +149,4 @@ exports.postNewAnswer = async (req, res, next) => {
 			answer
 		}
 	})
-};
+});
