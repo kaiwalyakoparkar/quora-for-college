@@ -1,10 +1,12 @@
 //--------- Importing internal modules and files ----------
 const Questions = require('../models/questionsModel.js');
+const catchAsync = require('../util/catchAsync.js');
+const AppError = require('../util/appError.js');
 
 //--------- Functional code for this file ---------
 
 //Gets all the questions from the database
-exports.getAllQuestions = async (req, res, next) => {
+exports.getAllQuestions = catchAsync ( async (req, res, next) => {
 	
 	//Fetching the Questions
 	const questions = await Questions.find();
@@ -17,10 +19,10 @@ exports.getAllQuestions = async (req, res, next) => {
 			questions
 		}
 	});
-};
+});
 
 //Get a single question from Database with provided id
-exports.getSingleQuestion = async (req, res, next) => {
+exports.getSingleQuestion = catchAsync ( async (req, res, next) => {
 
 	//Fetching the Question of given Id
 	const question = await Questions.findById(req.params.id);
@@ -44,10 +46,10 @@ exports.getSingleQuestion = async (req, res, next) => {
 		});
 
 	}
-};
+});
 
 //Posting a new question.
-exports.postNewQuestion = async (req, res, next) => {
+exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.create(req.body);
 
 	res.status(201).json({
@@ -56,10 +58,10 @@ exports.postNewQuestion = async (req, res, next) => {
 			question
 		}
 	})
-};
+});
 
 //Delete a Question
-exports.deleteQuestion = async (req, res, next) => {
+exports.deleteQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.findByIdAndDelete(req.params.id);
 
 	res.status(202).json({
@@ -68,10 +70,10 @@ exports.deleteQuestion = async (req, res, next) => {
 			question
 		}
 	})
-};
+});
 
 //Update a Question
-exports.updateQuestion = async (req, res, next) => {
+exports.updateQuestion = catchAsync ( async (req, res, next) => {
 
 	if (req.body.upvotes) {
 
@@ -133,4 +135,4 @@ exports.updateQuestion = async (req, res, next) => {
 			}
 		});
 	}
-}
+});
