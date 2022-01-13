@@ -23,6 +23,10 @@ exports.getAllAnswers = catchAsync ( async (req, res, next) => {
 exports.getSingleAnswer = catchAsync ( async (req, res, next) => {
 	const answer = await Answers.findById(req.params.id);
 
+	if (!answer) {
+		return next(new AppError('No answer found with the provided id, Kindly recheck the id', 404));
+	}
+
 	res.status(200).json({
 		status: "Success",
 		data: {

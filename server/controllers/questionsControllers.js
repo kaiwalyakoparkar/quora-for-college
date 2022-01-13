@@ -29,23 +29,16 @@ exports.getSingleQuestion = catchAsync ( async (req, res, next) => {
 
 	//If no question found with given id
 	if (!question) {
+		return next(new AppError('No question found with the provided id, Kindly recheck the id', 404));
+	} 
 
-		res.status(404).json({
-			status: "Fail",
-			message: "Did not find any question with given id"
-		});
-		
-	} else {
-
-		//Sending the response with the fetched question
-		res.status(200).json({
-			status: "Success",
-			data: {
-				question
-			}
-		});
-
-	}
+	//Sending the response with the fetched question
+	res.status(200).json({
+		status: "Success",
+		data: {
+			question
+		}
+	});
 });
 
 //Posting a new question.
