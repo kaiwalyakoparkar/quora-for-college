@@ -1,4 +1,4 @@
-const AppError = require('../util/appError.js');
+const AppError = require('../utils/appError.js');
 require('dotenv').config();
 
 //================ Handling MongoDB/Mongoose Generated errors ==============

@@ -15,8 +15,8 @@ const cors = require('cors');
 //--------- Importing internal modules and files ----------
 const questionsRoutes = require('./routes/questionsRoutes.js');
 const answersRoutes = require('./routes/answersRoutes.js');
-const globalErrorHandler = require('./controllers/errorController.js');
-const appError = require('./util/appError.js');
+const globalErrorHandler = require('./controllers/errorControllers.js');
+const appError = require('./utils/appError.js');
 
 //--------- Variable assignment ------------------
 const app = express();
