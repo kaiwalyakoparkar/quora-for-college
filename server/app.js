@@ -1,5 +1,6 @@
 //--------- Including all the external packages -----------
 const express = require('express');
+const morgan = require('morgan');
 
 //--------- Importing internal modules and files ----------
 const questionsRoutes = require('./routes/questionsRoutes.js');
@@ -9,6 +10,11 @@ const appError = require('./util/appError.js');
 
 //--------- Variable assignment ------------------
 const app = express();
+
+//--------- Middlewares ----------------
+if(process.env.NODE_ENV === 'development') {
+	app.use(morgan('dev'));
+}
 
 //--------- Functional code for this file ---------
 //Routes mounting
