@@ -49,7 +49,10 @@ exports.signup = catchAsync(async(req, res, next) => {
 		email: req.body.email,
 		password: req.body.password,
 		passwordConfirm: req.body.passwordConfirm,
-		role: req.body.role
+		role: req.body.role,
+		yearOfAdmission: req.body.yearOfAdmission,
+		courseYear: req.body.courseYear,
+		currentStatus: req.body.currentStatus
 	});
 
 	//========== JWT signing & sending response (Iteration 3)
