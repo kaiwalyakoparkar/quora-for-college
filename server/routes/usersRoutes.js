@@ -15,6 +15,6 @@ route.post('/login', authControllers.login);
 route.route('/').get(authControllers.protect, authControllers.restrictTo('admin'), usersControllers.getAllUsers);
 route.route('/me').get(authControllers.protect, usersControllers.getMe, usersControllers.getSingleUser);
 route.route('/updateMe').patch(authControllers.protect, usersControllers.updateMe);
-route.route('/deleteMe').patch(authControllers.protect, usersControllers.deleteMe);
+route.route('/deleteMe').delete(authControllers.protect, usersControllers.deleteMe);
 
 module.exports = route;
