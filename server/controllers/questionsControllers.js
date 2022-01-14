@@ -46,11 +46,16 @@ exports.getSingleQuestion = catchAsync ( async (req, res, next) => {
 exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.create(req.body);
 
+	//User Part
+	//Finding the user info of the logged in user
 	const user = await Users.findById(req.user.id);
+
 	const updatedUserObj = {questionsAsked: question.id};
 
+	//Now updating the user information with the new question id
 	const updatedUser = await Users.findByIdAndUpdate(user.id, {$push:updatedUserObj}, {new: true});
 
+	//Sending the response of the question
 	res.status(201).json({
 		status: "Success",
 		data: {
@@ -63,11 +68,18 @@ exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 exports.deleteQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.findByIdAndDelete(req.params.id);
 
+	//User Part
+
+	//Finding the user info of the logged in user
 	const user = await Users.findById(req.user.id);
+	
+	//Now updating the questionsAsked array with the deleted question id
 	const updatedUserObj = {questionsAsked: question.id};
 
+	//Now deleting the question from the user infromation
 	const updatedUser = await Users.findByIdAndUpdate(user.id, {$pull:updatedUserObj}, {new: true});
 
+	//Sending the response
 	res.status(202).json({
 		status: "Success",
 		data: {

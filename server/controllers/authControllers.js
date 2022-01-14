@@ -1,17 +1,22 @@
+//--------- Importing External modules and files ----------
 const jwt = require('jsonwebtoken');
 const util = require('util');
 require('dotenv').config();
 
+//--------- Importing Intenal modules and files ----------
 const User = require('../models/usersModel.js');
 const catchAsync = require('../utils/catchAsync.js');
 const AppError = require('../utils/appError.js');
 
+//--------- Functional code for this file ---------
+//Signing the token from env keys
 const signToken = (id) => {
 	const secretKey = process.env.JWT_SECRET_KEY;
 	const expiresIn = process.env.JWT_EXPIRES_IN;
 	return jwt.sign({id}, secretKey, {expiresIn});
 }
 
+//Creating and sending token to the client side
 const createAndSendToken = (user, statusCode, res) => {
 
 	//Creating a jwt token
@@ -42,6 +47,7 @@ const createAndSendToken = (user, statusCode, res) => {
 	});
 }
 
+//Signing up the new user and sending the cookie to the client side
 exports.signup = catchAsync(async(req, res, next) => {
 	//Adding a new user into database.
 	const newUser = await User.create({
@@ -59,6 +65,7 @@ exports.signup = catchAsync(async(req, res, next) => {
 	createAndSendToken(newUser, 201, res);
 });
 
+//Logging in the new user and sending the cookie to the client side
 exports.login = catchAsync(async (req, res, next) => {
 	const email = req.body.email;
 	const password = req.body.password;
@@ -75,16 +82,11 @@ exports.login = catchAsync(async (req, res, next) => {
 		return next(new AppError(`Incorrect email or password`, 401));
 	}
 
-	//If all good sends the token back
-	// const token = signToken(user._id);
-	// res.status(200).json({
-	// 	status: "success",
-	// 	token
-	// });
-
+	//If everything is okay then create a new token and send it to the client side
 	createAndSendToken(user, 200, res);
 });
 
+//Setting the JWT token as null which also signifies the user is logged out
 exports.logout = (req, res) => {
   res.cookie('jwt', 'loggedout', {
     expires: new Date(Date.now() + 10 * 1000),
@@ -93,7 +95,7 @@ exports.logout = (req, res) => {
   res.status(200).json({ status: 'success' });
 };
 
-
+//Makes sure that only logged in user or user with specific person can access routes like post, update and delete
 exports.protect = catchAsync(async (req, res, next) => {
 
 	let token;
@@ -126,6 +128,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 	next();
 });
 
+//This will restrict some endpoints to user with certain roles
 exports.restrictTo = function (...roles) {
 	return (req, res, next) => {
 		//roles ['admin', 'lead-guide'] :: role = 'user'
@@ -136,6 +139,7 @@ exports.restrictTo = function (...roles) {
 	}
 }
 
+//Updating the password
 exports.updatePassword = catchAsync(async (req, res, next) => {
 	//1) Get the user from the collection
 	const user = await User.findById(req.user.id).select('+password');
