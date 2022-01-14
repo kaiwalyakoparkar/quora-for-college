@@ -27,7 +27,8 @@ const usersSchema = new mongoose.Schema({
 	},
 	currentStatus: {
 		type: String,
-		enum: ['Student', 'Passout',  'Dropout', 'Professor']
+		enum: ['Student', 'Passout',  'Dropout', 'Professor'],
+		default: 'Student'
 	},
 	role: {
 		type: String,
@@ -38,7 +39,7 @@ const usersSchema = new mongoose.Schema({
 	questionsAnswered: {
 		type: Number,
 		default: 0
-	}
+	},
 	password: {
 		type: String,
 		required: [true, 'Please provide a password'],
