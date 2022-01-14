@@ -11,6 +11,7 @@ const authControllers = require('../controllers/authControllers.js');
 
 route.post('/signup', authControllers.signup);
 route.post('/login', authControllers.login);
+route.get('/logout', authControllers.logout);
 
 route.route('/').get(authControllers.protect, authControllers.restrictTo('Admin'), usersControllers.getAllUsers);
 route.route('/me').get(authControllers.protect, usersControllers.getMe, usersControllers.getSingleUser);

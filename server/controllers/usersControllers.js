@@ -36,22 +36,30 @@ exports.getSingleUser = catchAsync (async (req, res, next) => {
 	})
 });
 
-exports.updateMe = (req, res, next) => {
+exports.updateMe = catchAsync ( async (req, res, next) => {
   //1) Create error if the user updates the password data
   if (req.body.password || req.body.passConfirm) {
     return next(
       new AppError(
-        'This route is not for password updates. Please use /updatePassword route',
+        'This route is not for password updates. Please contact admin for password update',
         400
       )
     );
   }
 
+  const filterObj = (obj, ...allowedFields) => {
+    const newObj = {};
+    Object.keys(obj).forEach(el => {
+      if (allowedFields.includes(el)) newObj[el] = obj[el];
+    });
+    return newObj;
+  };
+
   //3) Filetring out the body in the request with permitted fields
-  const filteredBody = finterObj(req.body, 'name', 'email');
+  const filteredBody = filterObj(req.body, 'name', 'email', 'about', 'courseYear', 'currentStatus', 'questionsAsked', 'questionsAnswered');
 
   //2) Update user document
-  const updatedUser = Users.findByIdAndUpdate(req.user.id, filteredBody, {
+  const updatedUser = await Users.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,
     runValidators: true
   });
@@ -62,7 +70,7 @@ exports.updateMe = (req, res, next) => {
       user: updatedUser
     }
   });
-};
+});
 
 exports.deleteMe = catchAsync(async (req, res, next) => {
   await Users.findByIdAndUpdate(req.user.id, {active: false});
