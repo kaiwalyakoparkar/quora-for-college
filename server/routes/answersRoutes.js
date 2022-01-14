@@ -4,6 +4,7 @@ const express = require('express');
 //--------- Importing internal modules and files ----------
 const routes = express.Router();
 const answersControllers = require('../controllers/answersControllers.js');
+const authControllers = require('../controllers/authControllers.js');
 
 //--------- Middlewares -----------
 routes.use(express.json());
@@ -17,9 +18,9 @@ routes.route('/')
 //Route for '/id'
 routes.route('/:id')
 	.get(answersControllers.getSingleAnswer)
-	.patch(answersControllers.updateAnswer)
-	.delete(answersControllers.deleteAnswer)
-	.post(answersControllers.postNewAnswer);
+	.patch(authControllers.protect, answersControllers.updateAnswer)
+	.delete(authControllers.protect, answersControllers.deleteAnswer)
+	.post(authControllers.protect, answersControllers.postNewAnswer);
 
 //--------- Post function Assignment ---------------
 module.exports = routes;
