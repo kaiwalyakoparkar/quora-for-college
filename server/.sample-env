@@ -4,3 +4,7 @@ NODE_ENV=production
 
 DB_STRING=XXXXX String provided by mongodb XXX
 DB_PASSWORD=XXXXX Password provided to mongodb XXX
+
+JWT_SECRET_KEY=any-random-phrase-you-like
+JWT_EXPIRES_IN=90d
+JWT_COOKIE_EXPIRES_IN=90
