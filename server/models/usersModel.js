@@ -16,11 +16,29 @@ const usersSchema = new mongoose.Schema({
 		validate: [validator.isEmail, 'Please provide a valid email']
 	},
 	about: String,
+	yearOfAdmission: {
+		type: Number,
+		required: [true, 'Please provide your year of Admission']
+	},
+	courseYear: {
+		type: String,
+		required: [true, 'Please provide your course year. Any one of these -> FY/ SY/ TY. If a professor please enter -> Prof'],
+		enum: ['FY', 'SY', 'TY', 'Prof']
+	},
+	currentStatus: {
+		type: String,
+		enum: ['Student', 'Passout',  'Dropout', 'Professor']
+	},
 	role: {
 		type: String,
-		enum: ['student', 'teacher', 'admin'],
-		default: 'student'
+		enum: ['Student', 'Professor', 'Admin'],
+		default: 'Student'
 	},
+	questionsAsked: [String],
+	questionsAnswered: {
+		type: Number,
+		default: 0
+	}
 	password: {
 		type: String,
 		required: [true, 'Please provide a password'],
