@@ -47,7 +47,6 @@ exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.create(req.body);
 
 	const user = await Users.findById(req.user.id);
-
 	const updatedUserObj = {questionsAsked: question.id};
 
 	const updatedUser = await Users.findByIdAndUpdate(user.id, {$push:updatedUserObj}, {new: true});
@@ -63,6 +62,11 @@ exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 //Delete a Question
 exports.deleteQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.findByIdAndDelete(req.params.id);
+
+	const user = await Users.findById(req.user.id);
+	const updatedUserObj = {questionsAsked: question.id};
+
+	const updatedUser = await Users.findByIdAndUpdate(user.id, {$pull:updatedUserObj}, {new: true});
 
 	res.status(202).json({
 		status: "Success",
