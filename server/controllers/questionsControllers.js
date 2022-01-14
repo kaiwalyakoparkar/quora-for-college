@@ -1,5 +1,6 @@
 //--------- Importing internal modules and files ----------
 const Questions = require('../models/questionsModel.js');
+const Users = require('../models/usersModel.js');
 const catchAsync = require('../utils/catchAsync.js');
 const AppError = require('../utils/appError.js');
 
@@ -45,6 +46,11 @@ exports.getSingleQuestion = catchAsync ( async (req, res, next) => {
 exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.create(req.body);
 
+	const user = await Users.findById(req.user.id);
+	const updatedUserObj = {questionsAsked: question.id};
+
+	const updatedUser = await Users.findByIdAndUpdate(user.id, {$push:updatedUserObj}, {new: true});
+
 	res.status(201).json({
 		status: "Success",
 		data: {
@@ -56,6 +62,11 @@ exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 //Delete a Question
 exports.deleteQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.findByIdAndDelete(req.params.id);
+
+	const user = await Users.findById(req.user.id);
+	const updatedUserObj = {questionsAsked: question.id};
+
+	const updatedUser = await Users.findByIdAndUpdate(user.id, {$pull:updatedUserObj}, {new: true});
 
 	res.status(202).json({
 		status: "Success",

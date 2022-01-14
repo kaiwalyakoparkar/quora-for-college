@@ -1,6 +1,7 @@
 //--------- Importing internal modules and files ----------
 const Answers = require('../models/answersModel.js');
 const Questions = require('../models/questionsModel.js');
+const Users = require('../models/usersModel.js');
 const catchAsync = require('../utils/catchAsync.js');
 const AppError = require('../utils/appError.js');
 
@@ -145,6 +146,16 @@ exports.postNewAnswer = catchAsync ( async (req, res, next) => {
 
 	//Get the question & update the answer field with new answer id
 	const updatedQuestion = await Questions.findByIdAndUpdate(questionId, {$push:answerObj}, {new: true});
+
+	// Users Part
+	//We will find the data of the user
+	const user = await Users.findById(req.user.id);
+
+	//Update the questionsAnswered filed by 1
+	const updateAnsweredQuestions = user.questionsAnswered + 1;
+	const updatedUserObj = {questionsAnswered: updateAnsweredQuestions};
+
+	const updatedUser = await Users.findByIdAndUpdate(user.id, updatedUserObj, {new: true});
 
 	//Send the response
 	res.status(201).json({
