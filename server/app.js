@@ -15,6 +15,7 @@ const cors = require('cors');
 //--------- Importing internal modules and files ----------
 const questionsRoutes = require('./routes/questionsRoutes.js');
 const answersRoutes = require('./routes/answersRoutes.js');
+const usersRoutes = require('./routes/usersRoutes.js');
 const globalErrorHandler = require('./controllers/errorControllers.js');
 const appError = require('./utils/appError.js');
 
@@ -64,6 +65,7 @@ app.use(compression());
 //Routes mounting
 app.use('/api/v1/questions', questionsRoutes);
 app.use('/api/v1/answers', answersRoutes);
+app.use('/api/v1/users', usersRoutes);
 
 //Global error handlers added
 app.use(globalErrorHandler);
