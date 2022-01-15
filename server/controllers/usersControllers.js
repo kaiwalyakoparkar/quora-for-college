@@ -2,11 +2,15 @@
 const Users = require('../models/usersModel.js');
 const catchAsync = require('../utils/catchAsync.js');
 const AppError = require('../utils/appError.js');
+const ApiFeatures = require('../utils/apiFeatures.js');
 
 //--------- Functional code for this file ---------
 //This will list all the users in the database (Only accessible by admin)
 exports.getAllUsers = catchAsync(async (req, res, next) => {
-	const users = await Users.find();
+  //Fetching the users and formating the response according to the query
+  const feature = new ApiFeatures(Users.find(), req.query).sort().limitFields().pagination();
+
+  const users = await feature.query;
 
 	res.status(200).json({
 		status: 'success',
