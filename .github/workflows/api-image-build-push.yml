@@ -6,10 +6,12 @@ name: Create and publish api Docker image/package
 # documentation.
 
 on:
-  # schedule:
-  #  - cron: '37 10 * * *'
   push:
     branches: [ main ]
+
+defaults:
+ run:
+  working-directory: ./server
 
 env:
   # Use docker.io for Docker Hub if empty
