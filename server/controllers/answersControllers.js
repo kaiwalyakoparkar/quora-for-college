@@ -4,12 +4,16 @@ const Questions = require('../models/questionsModel.js');
 const Users = require('../models/usersModel.js');
 const catchAsync = require('../utils/catchAsync.js');
 const AppError = require('../utils/appError.js');
+const ApiFeatures = require('../utils/apiFeatures.js');
 
 //--------- Functional code for this file ---------
 
 //Get all the answers
 exports.getAllAnswers = catchAsync ( async (req, res, next) => {
-	const answers = await Answers.find();
+	const feature = new ApiFeatures(Answers.find(), req.query).sort().limitFields().pagination();
+
+	const answers = await feature.query;
+	
 
 	res.status(200).json({
 		status: "Success",
