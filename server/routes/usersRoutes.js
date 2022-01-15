@@ -1,14 +1,15 @@
-//Eternal imports
+//--------- Including all the external packages -----------
 const express = require('express');
 
-//Variable delarations
+//--------- Importing internal modules and files ----------
 const route = express.Router();
-
-route.use(express.json());
-
 const usersControllers = require('../controllers/usersControllers.js');
 const authControllers = require('../controllers/authControllers.js');
 
+//--------- Middlewares -----------
+route.use(express.json());
+
+//--------- Functional code for this file ---------
 route.post('/signup', authControllers.signup);
 route.post('/login', authControllers.login);
 route.get('/logout', authControllers.logout);
@@ -18,4 +19,5 @@ route.route('/me').get(authControllers.protect, usersControllers.getMe, usersCon
 route.route('/updateMe').patch(authControllers.protect, usersControllers.updateMe);
 route.route('/deleteMe').delete(authControllers.protect, usersControllers.deleteMe);
 
+//--------- Post function Assignment ---------------
 module.exports = route;

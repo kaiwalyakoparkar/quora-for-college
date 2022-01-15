@@ -1,9 +1,16 @@
+//--------- Importing internal modules and files ----------
 const Users = require('../models/usersModel.js');
 const catchAsync = require('../utils/catchAsync.js');
 const AppError = require('../utils/appError.js');
+const ApiFeatures = require('../utils/apiFeatures.js');
 
+//--------- Functional code for this file ---------
+//This will list all the users in the database (Only accessible by admin)
 exports.getAllUsers = catchAsync(async (req, res, next) => {
-	const users = await Users.find();
+  //Fetching the users and formating the response according to the query
+  const feature = new ApiFeatures(Users.find(), req.query).sort().limitFields().pagination();
+
+  const users = await feature.query;
 
 	res.status(200).json({
 		status: 'success',
@@ -15,11 +22,13 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
 	});
 });
 
+//This will set the information for finding about the yourself (logged in user)
 exports.getMe = (req, res, next) => {
 	req.params.id = req.user.id;
 	next();
 }
 
+//This will find the information about yourself (logged in user)
 exports.getSingleUser = catchAsync (async (req, res, next) => {
 	const user = await Users.findById(req.params.id);
 
@@ -36,6 +45,7 @@ exports.getSingleUser = catchAsync (async (req, res, next) => {
 	})
 });
 
+//This handles the updating the user information
 exports.updateMe = catchAsync ( async (req, res, next) => {
   //1) Create error if the user updates the password data
   if (req.body.password || req.body.passConfirm) {
@@ -47,6 +57,7 @@ exports.updateMe = catchAsync ( async (req, res, next) => {
     );
   }
 
+  //This will filter the allowedFields from all the provided data in the req.body
   const filterObj = (obj, ...allowedFields) => {
     const newObj = {};
     Object.keys(obj).forEach(el => {
@@ -64,6 +75,7 @@ exports.updateMe = catchAsync ( async (req, res, next) => {
     runValidators: true
   });
 
+  //Sending the response
   res.status(200).json({
     status: 'success',
     data: {
@@ -72,9 +84,11 @@ exports.updateMe = catchAsync ( async (req, res, next) => {
   });
 });
 
+//Deleting the user (Here we set the user active: false so user can reclaim it's account again)
 exports.deleteMe = catchAsync(async (req, res, next) => {
   await Users.findByIdAndUpdate(req.user.id, {active: false});
 
+  //Sending the response
   res.status(204).json({
     status: 'success',
     data: null

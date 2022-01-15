@@ -1,8 +1,10 @@
+//--------- Including all the external packages -----------
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 
+//--------- Functional code for this file ---------
 const usersSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -64,16 +66,19 @@ const usersSchema = new mongoose.Schema({
 	}
 });
 
+//We will encrypt the password before storing into database
 usersSchema.pre('save', async function (next) {
 	this.password = await bcrypt.hash(this.password, 1);
 	this.passwordConfirm = undefined;
 	next();
 });
 
+//In password confirm we will check if entered password and database passwords match
 usersSchema.methods.correctPassword = async function (enteredPassword, databasePassword) {
 	return await bcrypt.compare(enteredPassword, databasePassword);
 }
 
+//We will record the time when the password was changed
 usersSchema.methods.passwordChangedAfter = function(tokenTimestamp) {
 	if(this.passwordChangedAt) {
 
@@ -86,6 +91,7 @@ usersSchema.methods.passwordChangedAfter = function(tokenTimestamp) {
 	return false;
 }
 
+//Creating token for resetting password
 usersSchema.methods.createPasswordResetToken = function() {
 	const resetToken = crypto.randomBytes(32).toString('hex');
 
@@ -95,6 +101,7 @@ usersSchema.methods.createPasswordResetToken = function() {
 	return resetToken;
 }
 
+//This will filter only active users
 usersSchema.pre(/^find/, function(next) {
 	this.find({active: {$ne: false}});
 	next();
@@ -102,4 +109,5 @@ usersSchema.pre(/^find/, function(next) {
 
 const Users = mongoose.model('Users', usersSchema);
 
+//--------- Post function Assignment ---------------
 module.exports = Users;

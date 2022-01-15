@@ -3,14 +3,17 @@ const Questions = require('../models/questionsModel.js');
 const Users = require('../models/usersModel.js');
 const catchAsync = require('../utils/catchAsync.js');
 const AppError = require('../utils/appError.js');
+const ApiFeatures = require('../utils/apiFeatures.js');
 
 //--------- Functional code for this file ---------
 
 //Gets all the questions from the database
 exports.getAllQuestions = catchAsync ( async (req, res, next) => {
 	
-	//Fetching the Questions
-	const questions = await Questions.find();
+	//Fetching the question and formating the response according to the query
+	const feature = new ApiFeatures(Questions.find(), req.query).sort().limitFields().pagination();
+
+	const questions = await feature.query;
 	
 	//Sending the response with the fetched questions
 	res.status(200).json({
@@ -46,11 +49,16 @@ exports.getSingleQuestion = catchAsync ( async (req, res, next) => {
 exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.create(req.body);
 
+	//User Part
+	//Finding the user info of the logged in user
 	const user = await Users.findById(req.user.id);
+
 	const updatedUserObj = {questionsAsked: question.id};
 
+	//Now updating the user information with the new question id
 	const updatedUser = await Users.findByIdAndUpdate(user.id, {$push:updatedUserObj}, {new: true});
 
+	//Sending the response of the question
 	res.status(201).json({
 		status: "Success",
 		data: {
@@ -63,11 +71,18 @@ exports.postNewQuestion = catchAsync ( async (req, res, next) => {
 exports.deleteQuestion = catchAsync ( async (req, res, next) => {
 	const question = await Questions.findByIdAndDelete(req.params.id);
 
+	//User Part
+
+	//Finding the user info of the logged in user
 	const user = await Users.findById(req.user.id);
+	
+	//Now updating the questionsAsked array with the deleted question id
 	const updatedUserObj = {questionsAsked: question.id};
 
+	//Now deleting the question from the user infromation
 	const updatedUser = await Users.findByIdAndUpdate(user.id, {$pull:updatedUserObj}, {new: true});
 
+	//Sending the response
 	res.status(202).json({
 		status: "Success",
 		data: {
