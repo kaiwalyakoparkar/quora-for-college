@@ -3,14 +3,17 @@ const Questions = require('../models/questionsModel.js');
 const Users = require('../models/usersModel.js');
 const catchAsync = require('../utils/catchAsync.js');
 const AppError = require('../utils/appError.js');
+const ApiFeatures = require('../utils/apiFeatures.js');
 
 //--------- Functional code for this file ---------
 
 //Gets all the questions from the database
 exports.getAllQuestions = catchAsync ( async (req, res, next) => {
 	
-	//Fetching the Questions
-	const questions = await Questions.find();
+	//Fetching the question and formating the response according to the query
+	const feature = new ApiFeatures(Questions.find(), req.query).sort().limitFields().pagination();
+
+	const questions = await feature.query;
 	
 	//Sending the response with the fetched questions
 	res.status(200).json({
