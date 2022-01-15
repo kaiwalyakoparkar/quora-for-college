@@ -1,53 +1,46 @@
-name: Publish API Docker Image
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Create and publish API Docker image
 
 on:
   push:
-    branches: [ main ]
-  release:
-    types:
-      - published
-        
+    branches: ['main']
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
-
-  build:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+  build-and-push-image:
     runs-on: ubuntu-latest
-    
-    steps:
-      - name: Check out
-        uses: actions/checkout@v2
-        
-      - name: Docker meta
-        id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1
-        with:
-          images: ghcr.io/kaiwalyakoparkar/quoraforcollege-api
-          tag-sha: true
-          tag-edge: false
-          tag-latest: true
-          
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+    permissions:
+      contents: read
+      packages: write
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-        
-      - name: Login to GHCR
-        uses: docker/login-action@v1
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
-          
-      - name: Build api image
-        uses: docker/build-push-action@v2
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          tags: ${{ steps.docker_meta.outputs.tags }} 
-          file: ./server/Dockerfile
-          
-      - name: Push api image
-        uses: docker/build-push-action@v2
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
+          context: .
           push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          file: ./server/Dockerfile
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
