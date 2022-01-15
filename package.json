@@ -1,6 +1,6 @@
 {
   "name": "quora-for-college",
-  "version": "1.23.0",
+  "version": "1.24.0",
   "description": "This is an open forum for college students to communicate with each other",
   "main": "start.js",
   "scripts": {
