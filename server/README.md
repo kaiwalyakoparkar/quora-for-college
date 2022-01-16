@@ -767,21 +767,21 @@ If you would like to contribute to this api please go ahead and read [COC](../CO
 ### question setup & Contribution steps
 
 1. Fork the question
-![forking the question](https://i.imgur.com/qbVouuV.png)
+![forking the question](https://i.imgur.com/F7XizVC.png)
 
 2. Once you are in your fork the url should look something like
-`https://github.com/<YOUR-USERNAME>/LearnScape/`
+`https://github.com/<YOUR-USERNAME>/quora-for-college/`
 
 3. Go to preferred folder in your computer and paste the following command (Only one of it if you don't have ssh setup then go with HTTP command)
    - HTTP
-   `git clone https://github.com/<YOUR-USERNAME>/LearnScape.git`
+   `git clone https://github.com/<YOUR-USERNAME>/quora-for-college.git`
    - SSH
-   `git clone git@github.com:<YOUR-USERNAME>/LearnScape.git`
+   `git clone git@github.com:<YOUR-USERNAME>/quora-for-college.git`
 
 4. Now enter the folder by running the following command
-`cd LearnScape/api`
+`cd quora-for-college/server`
 
-5. Now you are in the `/api` folder
+5. Now you are in the `/server` folder
 
 6. Now do ahead and create a new branch and move to the branch
 `git checkout -b fix-issue-<ISSUE-NUMBER>`
