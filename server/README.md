@@ -25,13 +25,37 @@
 
 Gets all the questions in the database. The typical response looks like
 
-*Example 1*
+*Example 1:*
 An ideal request will look like
 `http://localhost:8080/api/v1/questions`
 
 And ideal response will look like
 ```json
-
+{
+    "status": "Success",
+    "result": 3,
+    "data": {
+        "questions": [
+            {
+                "_id": "61dd4b66875fa2ba15492c65",
+                "userQuestioner": "Kaiwalya Koparkar",
+                "questionTitle": "This is a question 1",
+                "questionDescription": "This is the description of the question",
+                "questionTag": "Courses",
+                "upvotes": 10,
+                "downvotes": 3,
+                "answers": [
+                    "61dd46f03cecd228e9df643a",
+                    "61dd46f03cecd228e9df6439"
+                ],
+                "id": "61dd4b66875fa2ba15492c65"
+            },
+            .
+            .
+            .
+        ]
+    }
+}
 
 ```
 
@@ -39,53 +63,158 @@ And ideal response will look like
 
 Gets specific question from large questions data. The question id here is given by the database.
 
-*Example 1*
+*Example 1:*
 An ideal request will look like
-`http://localhost:8080/api/v1/questions/61b35a39074e61abf2b0f0d4`
+`http://localhost:8080/api/v1/questions/61dd4b66875fa2ba15492c65`
 
 And ideal respons will look like
 ```json
-
+{
+    "status": "Success",
+    "data": {
+        "question": {
+            "_id": "61dd4b66875fa2ba15492c65",
+            "userQuestioner": "Kaiwalya Koparkar",
+            "questionTitle": "This is a question 1",
+            "questionDescription": "This is the description of the question",
+            "questionTag": "Courses",
+            "upvotes": 10,
+            "downvotes": 3,
+            "answers": [
+                "61dd46f03cecd228e9df643a",
+                "61dd46f03cecd228e9df6439"
+            ],
+            "__v": 0,
+            "id": "61dd4b66875fa2ba15492c65"
+        }
+    }
+}
 ```
 
 **🚩 3. `/api/v1/questions?page=<page-no>&limit=<no-of questions>`**
 
 This will give you no-of question provided in *limit* field and you can increment the page no to get the next *limit* frame data.
 
-*Example 1*
+*Example 1:*
 An ideal request will look like (PAGE 1)
-`http://localhost:8080/api/v1/questions?page=1&limit=5`
+`http://localhost:8080/api/v1/questions?page=1&limit=1`
 And ideal respons will look like
 ```json
-
+{
+    "status": "Success",
+    "result": 1,
+    "data": {
+        "questions": [
+            {
+                "_id": "61dd4b66875fa2ba15492c65",
+                "userQuestioner": "Kaiwalya Koparkar",
+                "questionTitle": "This is a question 1",
+                "questionDescription": "This is the description of the question",
+                "questionTag": "Courses",
+                "upvotes": 10,
+                "downvotes": 3,
+                "answers": [
+                    "61dd46f03cecd228e9df643a",
+                    "61dd46f03cecd228e9df6439"
+                ],
+                "id": "61dd4b66875fa2ba15492c65"
+            }
+        ]
+    }
+}
 ```
 
-*Example 2*
+*Example 2:*
 An ideal request will look like (PAGE 3)
-`http://localhost:8080/api/v1/questions?page=3&limit=5`
+`http://localhost:8080/api/v1/questions?page=3&limit=1`
 And ideal respons will look like (As there are only 13 questions and we are showing 5 per page)
 ```json
-
+{
+    "status": "Success",
+    "result": 1,
+    "data": {
+        "questions": [
+            {
+                "_id": "61dd4b66875fa2ba15492c67",
+                "userQuestioner": "Kaiwalya Koparkar",
+                "questionTitle": "This is a question 3",
+                "questionDescription": "This is the description of the question",
+                "questionTag": "Courses",
+                "upvotes": 15,
+                "downvotes": 0,
+                "answers": [
+                    "61dd46f03cecd228e9df643a",
+                    "61dd46f03cecd228e9df6439"
+                ],
+                "id": "61dd4b66875fa2ba15492c67"
+            }
+        ]
+    }
+}
 ```
 
 **🚩 4. `api/v1/questions?fields=name`**
 
 This will give all *names* of the questions. It will exclude all other fields in the object
 
-*Example 1*
+*Example 1:*
 An ideal request will look like 
-`http://localhost:8080/api/v1/questions?fields=name`
+`http://localhost:8080/api/v1/questions/?fields=userQuestioner`
 And ideal respons will look like 
 ```json
-
+{
+    "status": "Success",
+    "result": 3,
+    "data": {
+        "questions": [
+            {
+                "_id": "61dd4b66875fa2ba15492c65",
+                "userQuestioner": "Kaiwalya Koparkar",
+                "id": "61dd4b66875fa2ba15492c65"
+            },
+            {
+                "_id": "61dd4b66875fa2ba15492c66",
+                "userQuestioner": "Pragati More",
+                "id": "61dd4b66875fa2ba15492c66"
+            },
+            {
+                "_id": "61dd4b66875fa2ba15492c67",
+                "userQuestioner": "Kaiwalya Koparkar",
+                "id": "61dd4b66875fa2ba15492c67"
+            }
+        ]
+    }
+}
 ```
 
-*Example 2*
+*Example 2:*
 An ideal request will look like 
-`http://localhost:8080/api/v1/questions?fields=category`
+`http://localhost:8080/api/v1/questions/?fields=questionTitle`
 And ideal respons will look like 
 ```json
-
+{
+    "status": "Success",
+    "result": 3,
+    "data": {
+        "questions": [
+            {
+                "_id": "61dd4b66875fa2ba15492c65",
+                "questionTitle": "This is a question 1",
+                "id": "61dd4b66875fa2ba15492c65"
+            },
+            {
+                "_id": "61dd4b66875fa2ba15492c66",
+                "questionTitle": "This is a question 2",
+                "id": "61dd4b66875fa2ba15492c66"
+            },
+            {
+                "_id": "61dd4b66875fa2ba15492c67",
+                "questionTitle": "This is a question 3",
+                "id": "61dd4b66875fa2ba15492c67"
+            }
+        ]
+    }
+}
 ```
 
 ### ✨ Answers Routes
