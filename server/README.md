@@ -511,6 +511,250 @@ And ideal response will look like
 
 ### ✨ Users Routes
 
+**🚩 1. `POST /api/v1/users/login`**
+
+This routes helps the user to log in to the application
+
+*Example*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/users/login`
+
+*req.body* 👇
+```json
+{
+    "email": "studentUser@gespoly.org",
+    "password": "This is password"
+}
+```
+
+And ideal response will look like
+```json
+{
+    "status": "success",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTE4Y2FmYWYzYWYyMjY1ZTY1M2JlNSIsImlhdCI6MTY0MjM0NDE4MywiZXhwIjoxNjUwMTIwMTgzfQ.rxHCh2b4gmGegFeuLJktrxnQ5MxsbOh5jEXKTovooxg",
+    "data": {
+        "user": {
+            "_id": "61e18cafaf3af2265e653be5",
+            "name": "Student User",
+            "email": "studentuser@gespoly.org",
+            "yearOfAdmission": 2019,
+            "courseYear": "TY",
+            "currentStatus": "Student",
+            "role": "Student",
+            "questionsAsked": [],
+            "questionsAnswered": 2,
+            "active": "true",
+            "__v": 0,
+            "about": "I am a Computer Engineering Student"
+        }
+    }
+}
+```
+
+**🚩 2. `POST /api/v1/users/signup`**
+
+This routes helps the new user to sign in to the application
+
+*Example*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/users/signup`
+
+*req.body* 👇
+```json
+{
+    "name" : "Test User",
+    "email" : "test@gespoly.org",
+    "password" : "This is password",
+    "passwordConfirm" : "This is password",
+    "yearOfAdmission": 2017,
+    "courseYear": "Prof",
+    "currentStatus": "Professor"
+}
+```
+
+And ideal response will look like
+```json
+{
+    "status": "success",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTQyZjM5N2Q5NTUzNWU2MDA1ZjM0OSIsImlhdCI6MTY0MjM0NDI0OSwiZXhwIjoxNjUwMTIwMjQ5fQ.vSffyAezxOCPJjkFbvMktPbgd9kk_3AB3h9VkGY4t3M",
+    "data": {
+        "user": {
+            "name": "Test User",
+            "email": "test@gespoly.org",
+            "yearOfAdmission": 2017,
+            "courseYear": "Prof",
+            "currentStatus": "Professor",
+            "role": "Student",
+            "questionsAsked": [],
+            "questionsAnswered": 0,
+            "active": "true",
+            "_id": "61e42f397d95535e6005f349",
+            "__v": 0
+        }
+    }
+}
+```
+
+
+**🚩 3. `GET /api/v1/users/logout`**
+
+This routes helps the user to log out of the application
+
+*Example*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/users/logout`
+
+And ideal response will look like
+```json
+{
+    "status": "Success"
+}
+```
+
+**🚩 4. `GET /api/v1/users/` (Admin role only)**
+
+This routes helps the admin user to get the information about all the users using the application
+
+*Example 1 (Admin success)*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/users/`
+
+And ideal response will look like
+```json
+{
+    "status": "success",
+    "result": 4,
+    "requestedAt": "2022-01-16T14:44:58.323Z",
+    "data": {
+        "users": [
+            {
+                "_id": "61e18cafaf3af2265e653be5",
+                "name": "Student User",
+                "email": "studentuser@gespoly.org",
+                "yearOfAdmission": 2019,
+                "courseYear": "TY",
+                "currentStatus": "Student",
+                "role": "Student",
+                "questionsAsked": [],
+                "questionsAnswered": 2,
+                "password": "$2a$04$kzpaXwihpuvL2FV5YjMHe.gJAMVA5VVEVcyqGHYnJtPpDLRy41ndy",
+                "active": "true",
+                "about": "I am a Computer Engineering Student"
+            },
+            .
+            .
+            .
+        ]
+    }
+}
+```
+
+*Example 2 (Regular user failure)*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/users/`
+
+And ideal response will look like
+```json
+{
+    "status": "fail",
+    "message": "You do not have permission to perform this action"
+}
+```
+
+**🚩 5. `GET /api/v1/users/me`**
+
+This routes helps the logged in user to get information about self
+
+*Example*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/users/me`
+
+And ideal response will look like
+```json
+{
+    "status": "success",
+    "requestedAt": "2022-01-16T14:46:38.984Z",
+    "data": {
+        "user": {
+            "_id": "61e18cafaf3af2265e653be5",
+            "name": "Student User",
+            "email": "studentuser@gespoly.org",
+            "yearOfAdmission": 2019,
+            "courseYear": "TY",
+            "currentStatus": "Student",
+            "role": "Student",
+            "questionsAsked": [],
+            "questionsAnswered": 2,
+            "password": "$2a$04$kzpaXwihpuvL2FV5YjMHe.gJAMVA5VVEVcyqGHYnJtPpDLRy41ndy",
+            "active": "true",
+            "__v": 0,
+            "about": "I am a Computer Engineering Student"
+        }
+    }
+}
+```
+
+**🚩 6. `PATCH /api/v1/users/updateMe`**
+
+This routes helps the logged in user to update the information about self
+
+*Example*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/users/updateMe`
+
+*req.body* 👇
+```json
+{
+    "about": "I am a Test Computer Engineering Student"
+}
+```
+
+And ideal response will look like
+```json
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "_id": "61e42f397d95535e6005f349",
+            "name": "Test User",
+            "email": "test@gespoly.org",
+            "yearOfAdmission": 2017,
+            "courseYear": "Prof",
+            "currentStatus": "Professor",
+            "role": "Student",
+            "questionsAsked": [],
+            "questionsAnswered": 0,
+            "password": "$2a$04$WZeORcAk6Bxj.gcs4PqfTeBLUzJiCgkGHgmNWS16d8nyuSvt81XsS",
+            "active": "true",
+            "__v": 0,
+            "about": "I am a Test Computer Engineering Student"
+        }
+    }
+}
+```
+
+**🚩 7. `DELETE /api/v1/users/deleteMe`**
+
+This routes helps the logged in user to delete/deactivate their account
+
+
+*Example*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/users/deleteMe`
+
+And ideal response will look like
+```json
+null
+```
+
 ## 🙌 Want to contribute?
 If you would like to contribute to this api please go ahead and read [COC](../CODE_OF_CONDUCT.md) and [Contributing Guideline](../CONTRIBUTING.md). Once you read through them agree to policies of this question go ahead with **question setup & Contribution** steps below
 
