@@ -11,7 +11,7 @@
 
 ## Ways to use this API -
 1. [Pulling the API container image](https://ghcr.io/kaiwalyakoparkar/quora-for-college-api:latest)
-2. [Forking/Clonning and running Scripts](#🍴 Forking/Clonning and running Scripts -)
+2. [Forking/Clonning and running Scripts](## Forking/Clonning and running Scripts)
 
 ## 🍴 Forking/Clonning and running Scripts -
 
