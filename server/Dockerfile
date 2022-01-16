@@ -2,7 +2,7 @@ FROM node:alpine
 
 COPY . /quoraforcollege/server
 
-WORKDIR /quoraforcollege/server
+WORKDIR /quoraforcollege/server/
 
 RUN npm install
 
