@@ -21,7 +21,8 @@
 
 ### ✨ Questions Routes
 
-**🚩 1. `/api/v1/questions`**\n
+**🚩 1. `/api/v1/questions`**
+
 Gets all the questions in the database. The typical response looks like
 
 *Example 1*
@@ -34,7 +35,8 @@ And ideal response will look like
 
 ```
 
-**🚩 2. `/api/v1/questions/<question id>`**\n
+**🚩 2. `/api/v1/questions/<question id>`**
+
 Gets specific question from large questions data. The question id here is given by the database.
 
 *Example 1*
@@ -46,7 +48,8 @@ And ideal respons will look like
 
 ```
 
-**🚩 3. `/api/v1/questions?page=<page-no>&limit=<no-of questions>`**\n
+**🚩 3. `/api/v1/questions?page=<page-no>&limit=<no-of questions>`**
+
 This will give you no-of question provided in *limit* field and you can increment the page no to get the next *limit* frame data.
 
 *Example 1*
@@ -65,7 +68,8 @@ And ideal respons will look like (As there are only 13 questions and we are show
 
 ```
 
-**🚩 4. `api/v1/questions?fields=name`**\n
+**🚩 4. `api/v1/questions?fields=name`**
+
 This will give all *names* of the questions. It will exclude all other fields in the object
 
 *Example 1*
