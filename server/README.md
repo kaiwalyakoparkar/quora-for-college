@@ -1,4 +1,3 @@
-# Quora for College (Backend/ Server)
 <h1 align="center"> 🏫 Quora for College API 🏫 </h1>
 
 <a href="https://github.com/kaiwalyakoparkar/quora-for-college"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
@@ -21,11 +20,12 @@
 
 ### ✨ Questions Routes
 
-**🚩 1. `/api/v1/questions`**
+**🚩 1. `GET /api/v1/questions`**
 
 Gets all the questions in the database. The typical response looks like
 
 *Example 1:*
+
 An ideal request will look like
 `http://localhost:8080/api/v1/questions`
 
@@ -59,11 +59,12 @@ And ideal response will look like
 
 ```
 
-**🚩 2. `/api/v1/questions/<question id>`**
+**🚩 2. `GET /api/v1/questions/<question id>`**
 
 Gets specific question from large questions data. The question id here is given by the database.
 
 *Example 1:*
+
 An ideal request will look like
 `http://localhost:8080/api/v1/questions/61dd4b66875fa2ba15492c65`
 
@@ -91,128 +92,188 @@ And ideal respons will look like
 }
 ```
 
-**🚩 3. `/api/v1/questions?page=<page-no>&limit=<no-of questions>`**
+**🚩 3. `POST /api/v1/questions/`**
 
-This will give you no-of question provided in *limit* field and you can increment the page no to get the next *limit* frame data.
-
-*Example 1:*
-An ideal request will look like (PAGE 1)
-`http://localhost:8080/api/v1/questions?page=1&limit=1`
-And ideal respons will look like
-```json
-{
-    "status": "Success",
-    "result": 1,
-    "data": {
-        "questions": [
-            {
-                "_id": "61dd4b66875fa2ba15492c65",
-                "userQuestioner": "Kaiwalya Koparkar",
-                "questionTitle": "This is a question 1",
-                "questionDescription": "This is the description of the question",
-                "questionTag": "Courses",
-                "upvotes": 10,
-                "downvotes": 3,
-                "answers": [
-                    "61dd46f03cecd228e9df643a",
-                    "61dd46f03cecd228e9df6439"
-                ],
-                "id": "61dd4b66875fa2ba15492c65"
-            }
-        ]
-    }
-}
-```
-
-*Example 2:*
-An ideal request will look like (PAGE 3)
-`http://localhost:8080/api/v1/questions?page=3&limit=1`
-And ideal respons will look like (As there are only 13 questions and we are showing 5 per page)
-```json
-{
-    "status": "Success",
-    "result": 1,
-    "data": {
-        "questions": [
-            {
-                "_id": "61dd4b66875fa2ba15492c67",
-                "userQuestioner": "Kaiwalya Koparkar",
-                "questionTitle": "This is a question 3",
-                "questionDescription": "This is the description of the question",
-                "questionTag": "Courses",
-                "upvotes": 15,
-                "downvotes": 0,
-                "answers": [
-                    "61dd46f03cecd228e9df643a",
-                    "61dd46f03cecd228e9df6439"
-                ],
-                "id": "61dd4b66875fa2ba15492c67"
-            }
-        ]
-    }
-}
-```
-
-**🚩 4. `api/v1/questions?fields=name`**
-
-This will give all *names* of the questions. It will exclude all other fields in the object
+This routes helps the user to add questions to the database or application
 
 *Example 1:*
-An ideal request will look like 
-`http://localhost:8080/api/v1/questions/?fields=userQuestioner`
-And ideal respons will look like 
+
+An ideal request will look like
+`http://localhost:8080/api/v1/questions`
+
+*req.body* 👇
+
+```json
+{
+    "userQuestioner": "Test User",
+	"questionTitle": "This is a test question",
+	"questionDescription": "This is the description of the question",
+	"questionTag": "Sports"
+}
+```
+
+And ideal response will look like
 ```json
 {
     "status": "Success",
-    "result": 3,
     "data": {
-        "questions": [
-            {
-                "_id": "61dd4b66875fa2ba15492c65",
-                "userQuestioner": "Kaiwalya Koparkar",
-                "id": "61dd4b66875fa2ba15492c65"
-            },
-            {
-                "_id": "61dd4b66875fa2ba15492c66",
-                "userQuestioner": "Pragati More",
-                "id": "61dd4b66875fa2ba15492c66"
-            },
-            {
-                "_id": "61dd4b66875fa2ba15492c67",
-                "userQuestioner": "Kaiwalya Koparkar",
-                "id": "61dd4b66875fa2ba15492c67"
-            }
-        ]
+        "question": {
+            "userQuestioner": "Test User",
+            "questionTitle": "This is a test question",
+            "questionDescription": "This is the description of the question",
+            "questionTag": "Sports",
+            "upvotes": 0,
+            "downvotes": 0,
+            "answers": [],
+            "_id": "61e4278c7d95535e6005f327",
+            "__v": 0,
+            "id": "61e4278c7d95535e6005f327"
+        }
     }
 }
 ```
 
-*Example 2:*
-An ideal request will look like 
-`http://localhost:8080/api/v1/questions/?fields=questionTitle`
-And ideal respons will look like 
+**🚩 4. `PATCH /api/v1/questions/<question-id>`**
+
+This routes helps the user to update question to the database or application
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/questions/61e4278c7d95535e6005f327`
+
+*req.body* 👇
+
+```json
+{
+    "userQuestioner": "Test User (Changed)"
+}
+```
+
+And ideal response will look like
 ```json
 {
     "status": "Success",
-    "result": 3,
     "data": {
-        "questions": [
-            {
-                "_id": "61dd4b66875fa2ba15492c65",
-                "questionTitle": "This is a question 1",
-                "id": "61dd4b66875fa2ba15492c65"
-            },
-            {
-                "_id": "61dd4b66875fa2ba15492c66",
-                "questionTitle": "This is a question 2",
-                "id": "61dd4b66875fa2ba15492c66"
-            },
-            {
-                "_id": "61dd4b66875fa2ba15492c67",
-                "questionTitle": "This is a question 3",
-                "id": "61dd4b66875fa2ba15492c67"
-            }
-        ]
+        "question": {
+            "_id": "61e4278c7d95535e6005f327",
+            "userQuestioner": "Test User (Changed)",
+            "questionTitle": "This is a test question",
+            "questionDescription": "This is the description of the question",
+            "questionTag": "Sports",
+            "upvotes": 0,
+            "downvotes": 0,
+            "answers": [],
+            "__v": 0,
+            "id": "61e4278c7d95535e6005f327"
+        }
+    }
+}
+```
+
+**🚩 5. `PATCH /api/v1/questions/<question-id>`**
+
+This routes helps the user to upvote a question to the database or application
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/questions/61e4278c7d95535e6005f327`
+
+*req.body* 👇
+
+```json
+{
+    "upvotes": "0"
+}
+```
+
+And ideal response will look like
+```json
+{
+    "status": "Success",
+    "data": {
+        "question": {
+            "_id": "61e4278c7d95535e6005f327",
+            "userQuestioner": "Test User (Changed)",
+            "questionTitle": "This is a test question",
+            "questionDescription": "This is the description of the question",
+            "questionTag": "Sports",
+            "upvotes": 1,
+            "downvotes": 0,
+            "answers": [],
+            "__v": 0,
+            "id": "61e4278c7d95535e6005f327"
+        }
+    }
+}
+```
+
+**🚩 5. `PATCH /api/v1/questions/<question-id>`**
+
+This routes helps the user to upvote a question to the database or application
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/questions/61e4278c7d95535e6005f327`
+
+*req.body* 👇
+
+```json
+{
+    "downvotes": "0"
+}
+```
+
+And ideal response will look like
+```json
+{
+    "status": "Success",
+    "data": {
+        "question": {
+            "_id": "61e4278c7d95535e6005f327",
+            "userQuestioner": "Test User (Changed)",
+            "questionTitle": "This is a test question",
+            "questionDescription": "This is the description of the question",
+            "questionTag": "Sports",
+            "upvotes": 1,
+            "downvotes": 1,
+            "answers": [],
+            "__v": 0,
+            "id": "61e4278c7d95535e6005f327"
+        }
+    }
+}
+```
+
+
+**🚩 6. `DELETE /api/v1/questions/<question-id>`**
+
+This routes helps the user to upvote a question to the database or application
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/questions/61e4278c7d95535e6005f327`
+
+And ideal response will look like
+```json
+{
+    "status": "Success",
+    "data": {
+        "question": {
+            "_id": "61e4278c7d95535e6005f327",
+            "userQuestioner": "Test User (Changed)",
+            "questionTitle": "This is a test question",
+            "questionDescription": "This is the description of the question",
+            "questionTag": "Sports",
+            "upvotes": 1,
+            "downvotes": 0,
+            "answers": [],
+            "__v": 0,
+            "id": "61e4278c7d95535e6005f327"
+        }
     }
 }
 ```
