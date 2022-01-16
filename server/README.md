@@ -14,11 +14,22 @@
 
 ## Ways to use this API -
 1. [Pulling the API container image](https://ghcr.io/kaiwalyakoparkar/quora-for-college-api:latest)
-2. [Forking/Clonning and running Scripts](https://github.com/kaiwalyakoparkar/quora-for-college/tree/server/server#-forkingclonning-and-running-scripts--)
+2. [Forking/Clonning and running Scripts](https://github.com/kaiwalyakoparkar/quora-for-college/tree/main/server/server#-forkingclonning-and-running-scripts--)
 
 ## 🍴 Forking/Clonning and running Scripts -
+1. Follow the forking, clonning and local environment setup steps as [mentioned here](https://github.com/kaiwalyakoparkar/quora-for-college/tree/main/server/server#Project-setup--contribution-steps)
+2. Navigat to `/server` folder
+3. Run `npm start` or `npm run start:dev` to start prod or dev environment as you like
+4. Go to your api testing tool or application where you need to use this api
+5. Implement the [Routes Available](https://github.com/kaiwalyakoparkar/quora-for-college/tree/main/server/server#-routes-available--)
 
 ## 🐳 Pulling the API container image -
+1. Go to [Container Registray Page](https://ghcr.io/kaiwalyakoparkar/quora-for-college-api:latest)
+2. Make sure you have docker download, installed and checked on their hello world image
+3. Run Docker command `docker pull ghcr.io/kaiwalyakoparkar/quora-for-college-api:latest`
+4. Make sure you are in `/quora-for-college/server` directory
+5. Now run command `docker-compose up --build`. This will build and start the backend container with the database
+6. Now move to api testing tool or application and use [available routes](https://github.com/kaiwalyakoparkar/quora-for-college/tree/main/server/server#-routes-available--) to use the API
 
 ## 🛤 Routes Available -
 
@@ -768,7 +779,7 @@ If you would like to contribute to this api please go ahead and read [COC](../CO
 2. Git installed in local environment.
 3. GitHub account.
 
-### question setup & Contribution steps
+### Project setup & Contribution steps
 
 1. Fork the question
 ![forking the question](https://i.imgur.com/F7XizVC.png)
