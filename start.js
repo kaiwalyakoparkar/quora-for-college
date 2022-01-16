@@ -39,7 +39,7 @@ const getUppercaseArgs = () => {
 };
 
 const run = () => {
-  const artText = figlet.textSync(' LearnScape', { font: 'ANSI Shadow' });
+  const artText = figlet.textSync('QuFoCo', { font: 'ANSI Shadow' });
   console.log(chalk.cyan(artText));
 
   const upperCaseArgs = getUppercaseArgs();
