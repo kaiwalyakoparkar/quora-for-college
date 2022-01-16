@@ -22,6 +22,7 @@
   "author": "Kaiwalya Koparkar",
   "license": "MIT",
   "dependencies": {
+    "@cucumber/cucumber": "^8.0.0-rc.1",
     "bcryptjs": "^2.4.3",
     "chalk": "^4.1.2",
     "compression": "^1.7.4",
@@ -38,6 +39,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "validator": "^13.7.0",
-    "xss-clean": "^0.1.1"
+    "xss-clean": "^0.1.1",
+    "pactum": "^3.1.0"
   }
 }
