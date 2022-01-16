@@ -209,7 +209,7 @@ And ideal response will look like
 }
 ```
 
-**🚩 5. `PATCH /api/v1/questions/<question-id>`**
+**🚩 6. `PATCH /api/v1/questions/<question-id>`**
 
 This routes helps the user to upvote a question to the database or application
 
@@ -248,7 +248,7 @@ And ideal response will look like
 ```
 
 
-**🚩 6. `DELETE /api/v1/questions/<question-id>`**
+**🚩 7. `DELETE /api/v1/questions/<question-id>`**
 
 This routes helps the user to upvote a question to the database or application
 
@@ -279,6 +279,235 @@ And ideal response will look like
 ```
 
 ### ✨ Answers Routes
+
+**🚩 1. `GET /api/v1/answers`**
+
+Gets all the answers in the database. The typical response looks like
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/answers`
+
+And ideal response will look like
+```json
+
+{
+    "status": "Success",
+    "result": 3,
+    "data": {
+        "answers": [
+            {
+                "_id": "61dd46f03cecd228e9df643a",
+                "userAnswerer": "Mrunaal Chincholikar",
+                "answer": "This is the answer 2",
+                "upvotes": 24,
+                "downvotes": 1,
+                "id": "61dd46f03cecd228e9df643a"
+            },
+            .
+            .
+            .
+        ]
+    }
+}
+```
+
+**🚩 2. `GET /api/v1/answers/<answer id>`**
+
+Gets specific answer from large answers data. The answer id here is given by the database.
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/answers/61dd46f03cecd228e9df643a`
+
+And ideal respons will look like
+```json
+{
+    "status": "Success",
+    "data": {
+        "answer": {
+            "_id": "61dd46f03cecd228e9df643a",
+            "userAnswerer": "Mrunaal Chincholikar",
+            "answer": "This is the answer 2",
+            "upvotes": 24,
+            "downvotes": 1,
+            "__v": 0,
+            "id": "61dd46f03cecd228e9df643a"
+        }
+    }
+}
+```
+
+**🚩 3. `POST /api/v1/answers/<question-id>`**
+
+This routes helps the user to add answers to the database or application for the specific question provided in params
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/answers/61dd4b66875fa2ba15492c65`
+
+*req.body* 👇
+
+```json
+{
+    "userAnswerer": "Test",
+    "answer": "This is the test answer 2"
+}
+```
+
+And ideal response will look like (Also the question will have record of this answer)
+```json
+{
+    "status": "Success",
+    "data": {
+        "answer": {
+            "userAnswerer": "Test",
+            "answer": "This is the test answer 2",
+            "upvotes": 0,
+            "downvotes": 0,
+            "_id": "61e42adf7d95535e6005f33b",
+            "__v": 0,
+            "id": "61e42adf7d95535e6005f33b"
+        }
+    }
+}
+```
+
+**🚩 4. `PATCH /api/v1/answers/<answer-id>`**
+
+This routes helps the user to update answer to the database or application
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/answers/61e42adf7d95535e6005f33b`
+
+*req.body* 👇
+
+```json
+{
+    "userAnswerer": "Test User (Changed)"
+}
+```
+
+And ideal response will look like
+```json
+{
+    "status": "Success",
+    "data": {
+        "answer": {
+            "_id": "61e42adf7d95535e6005f33b",
+            "userAnswerer": "Test User (Changed)",
+            "answer": "This is the test answer 2",
+            "upvotes": 0,
+            "downvotes": 0,
+            "__v": 0,
+            "id": "61e42adf7d95535e6005f33b"
+        }
+    }
+}
+```
+
+**🚩 5. `PATCH /api/v1/answers/<answer-id>`**
+
+This routes helps the user to upvote a answer to the database or application
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/answers/61e42adf7d95535e6005f33b`
+
+*req.body* 👇
+
+```json
+{
+    "upvotes": "0"
+}
+```
+
+And ideal response will look like
+```json
+{
+    "status": "Success",
+    "data": {
+        "answer": {
+            "_id": "61e42adf7d95535e6005f33b",
+            "userAnswerer": "Test User (Changed)",
+            "answer": "This is the test answer 2",
+            "upvotes": 1,
+            "downvotes": 0,
+            "__v": 0,
+            "id": "61e42adf7d95535e6005f33b"
+        }
+    }
+}
+```
+
+**🚩 6. `PATCH /api/v1/answers/<answer-id>`**
+
+This routes helps the user to upvote an answer to the database or application
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/answers/61e4278c7d95535e6005f327`
+
+*req.body* 👇
+
+```json
+{
+    "downvotes": "0"
+}
+```
+
+And ideal response will look like
+```json
+{
+    "status": "Success",
+    "data": {
+        "answer": {
+            "_id": "61e42adf7d95535e6005f33b",
+            "userAnswerer": "Test User (Changed)",
+            "answer": "This is the test answer 2",
+            "upvotes": 1,
+            "downvotes": 1,
+            "__v": 0,
+            "id": "61e42adf7d95535e6005f33b"
+        }
+    }
+}
+```
+
+
+**🚩 7. `DELETE /api/v1/answers/<answer-id>`**
+
+This routes helps the user to upvote a answer to the database or application also it will delete it's record from concerned question document
+
+*Example 1:*
+
+An ideal request will look like
+`http://localhost:8080/api/v1/answers/61e4278c7d95535e6005f327`
+
+And ideal response will look like
+```json
+{
+    "status": "Success",
+    "data": {
+        "answer": {
+            "_id": "61e42adf7d95535e6005f33b",
+            "userAnswerer": "Test User (Changed)",
+            "answer": "This is the test answer 2",
+            "upvotes": 1,
+            "downvotes": 1,
+            "__v": 0,
+            "id": "61e42adf7d95535e6005f33b"
+        }
+    }
+}
+```
 
 ### ✨ Users Routes
 
