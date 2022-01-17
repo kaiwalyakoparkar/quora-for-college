@@ -10,7 +10,7 @@
     "server": "node start server",
     "prepare": "husky install",
     "tests:server": "concurrently -s first -k \"node ./server/server.js\" \"sleep 1 && npm run test:server\"",
-    "test:server": "cucumber-js -p default",
+    "test:server": "cucumber-js -p default"
   },
   "repository": {
     "type": "git",
