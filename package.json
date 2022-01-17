@@ -9,7 +9,8 @@
     "client": "node start client",
     "server": "node start server",
     "prepare": "husky install",
-    "test:server": "cd server && npm i && npm test"
+    "tests:server": "concurrently -s first -k \"node ./server/server.js\" \"sleep 1 && npm run test:server\"",
+    "test:server": "cucumber-js -p default",
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,7 @@
   "homepage": "https://github.com/kaiwalyakoparkar/quora-for-college#readme",
   "dependencies": {
     "chalk": "^4.1.2",
-    "concurrently": "^6.4.0",
+    "concurrently": "^6.5.1",
     "dotenv": "^10.0.0",
     "figlet": "^1.5.2",
     "kill": "^0.0.2",
