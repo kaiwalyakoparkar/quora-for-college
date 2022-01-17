@@ -10,7 +10,9 @@
 
 
 ## 💡 Inspiration -
-We as a team are trying to use this concept of “public forum”. We are trying to develop a web application that would be sort of Quora but specifically dedicated to college(s). In this crises situation, we as students went through lots of changes in learning styles and exam formats. Many new platforms, software, and apps were made available to us by the college but they were directed towards the use for student-teacher or class conversations. The main problem we are trying to solve is that the juniors don’t know about their seniors or vise versa and they have no means of establishing communication with them. That’s when the application of our software comes into the picture. As a public forum (email and logins provided by college) the new/old students can directly ask their questions and get them answered by seniors or alumni. The questions can be related to career guidance or help related to subjects etc. As our application would be hosted as a public forum it would help raise the SEO of the college on the internet. The questions related to the college could be found on the forum hence the transparency between the college and newcomers/ juniors is maintained.
+We are trying to develop a web application that would be sort of Quora but specifically dedicated to college(s). The main problem we are trying to solve is that the juniors don’t know about their seniors or vise versa and they have no means of establishing communication with them. That’s when the application of our software comes into the picture. 
+
+As a public forum (email and logins provided by college) the new/old students can directly ask their questions and get them answered by seniors or alumni. The questions can be related to career guidance or help related to subjects etc. As our application would be hosted as a public forum it would help raise the SEO of the college on the internet. 
 
 ## Ways to use this API -
 1. [Pulling the API container image](https://ghcr.io/kaiwalyakoparkar/quora-for-college-api:latest)
