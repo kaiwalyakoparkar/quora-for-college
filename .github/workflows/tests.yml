@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PORT: 8080
-      DATABASE_CONNECTION_STRING: 'mongodb://localhost:27017'
-      DATABASE_PASSWORD: ''
+      DATABASE_CONNECTION_STRING: ${{secrets.DB_String}}
+      DATABASE_PASSWORD: ${{secrets.DB_Password}}
     services:
       mongodb:
         image: mongo
