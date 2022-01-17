@@ -12,8 +12,6 @@
 ## 💡 Inspiration -
 We are trying to develop a web application that would be sort of Quora but specifically dedicated to college(s). The main problem we are trying to solve is that the juniors don’t know about their seniors or vise versa and they have no means of establishing communication with them. That’s when the application of our software comes into the picture. 
 
-As a public forum (email and logins provided by college) the new/old students can directly ask their questions and get them answered by seniors or alumni. The questions can be related to career guidance or help related to subjects etc. As our application would be hosted as a public forum it would help raise the SEO of the college on the internet. 
-
 ## Ways to use this API -
 1. [Pulling the API container image](https://ghcr.io/kaiwalyakoparkar/quora-for-college-api:latest)
 2. [Forking/Clonning and running Scripts](https://github.com/kaiwalyakoparkar/quora-for-college/tree/main/server/server#-forkingclonning-and-running-scripts--)
