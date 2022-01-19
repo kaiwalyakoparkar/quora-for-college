@@ -10,7 +10,7 @@
 
 
 ## 💡 Inspiration -
-
+We are trying to develop a web application that would be sort of Quora but specifically dedicated to college(s). The main problem we are trying to solve is that the juniors don’t know about their seniors or vise versa and they have no means of establishing communication with them. That’s when the application of our software comes into the picture. 
 
 ## Ways to use this API -
 1. [Pulling the API container image](https://ghcr.io/kaiwalyakoparkar/quora-for-college-api:latest)
