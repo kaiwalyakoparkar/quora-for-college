@@ -28,3 +28,20 @@ app.listen(PORT,() => {
 });
 
 //--------- Post function Assignment ---------------
+//This will handle all the unhandled rejections by the system and close the application gracefully
+process.on('unhandledRejection', err => {
+	console.log(err.name, err.message);
+	console.log('Unhandled Error Detected! 💥 Closing down the application...');
+
+	server.close(() => {
+		process.exit(1);
+	});
+});
+
+//This will handle all the SIGTERM errors and terminate the process carefully
+process.on('SIGTERM', () => {
+	console.log('SIGTERM received. Shutting down the server 👋');
+	server.close(() => {
+		console.log('💥 Process terminated');
+	});
+});
