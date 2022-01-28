@@ -16,5 +16,11 @@
 		"answer": "This is the answer 3",
 		"upvotes": 35,
 		"downvotes": 4
+	},
+	{
+		"userAnswerer": "Kaiwalya Koparkar",
+		"answer": "This is the answer 4",
+		"upvotes": 354,
+		"downvotes": 4
 	}
 ]
