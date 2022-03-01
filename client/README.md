@@ -1,1 +1,1 @@
-# Quora for College (Frontend/ Client)
+# Quora for college (Frontend/ Client)

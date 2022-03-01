@@ -56,7 +56,7 @@ const run = () => {
     },
     {
       command: 'node start-helper server',
-      name: 'server',
+      name: 'SERVER',
       prefixColor: 'cyan',
     },
     {

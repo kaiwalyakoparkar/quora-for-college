@@ -1,9 +1,17 @@
-import './App.css';
+//File Imports
+import Navbar from "../Navbar/Navbar";
 
-export default function App () {
-	return (
-		<div>
-			<h1>Application under construction</h1>
-		</div>
-	);
+//Function handling the App renders
+export default function App() {
+    return (
+        <div>
+            {/*Rendering the Navbar function*/}
+            <Navbar />
+
+            {/*The application vody will fall under this div*/}
+            <div>
+                <h1>Frontend development</h1>
+            </div>
+        </div>
+    )
 }
