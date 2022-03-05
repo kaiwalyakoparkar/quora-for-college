@@ -1,0 +1,137 @@
+[
+	{
+		"userQuestioner": "Kaiwalya Koparkar",
+		"questionTitle": "This is a question 1",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Courses",
+		"upvotes":10,
+		"downvotes":3,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+	},
+	{
+		"userQuestioner": "Pragati More",
+		"questionTitle": "This is a question 2",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Events",
+		"upvotes": 20,
+		"downvotes": 5,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Kaiwalya Koparkar",
+		"questionTitle": "This is a question 3",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Courses",
+		"upvotes":15,
+		"downvotes":0,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+	},
+	{
+		"userQuestioner": "Mrunaal Chincholikar",
+		"questionTitle": "This is a question 4",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Jobs",
+		"upvotes":13,
+		"downvotes":2,
+        },
+        {
+		"userQuestioner": "Vadanya Wabale",
+		"questionTitle": "This is a question 5",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Jobs",
+		"upvotes":15,
+		"downvotes":0,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+	},
+	{
+		"userQuestioner": "Pragati More",
+		"questionTitle": "This is a question 6",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Events",
+		"upvotes":16,
+		"downvotes":7,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Kaiwalya Koparkar",
+		"questionTitle": "This is a question 7",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Jobs",
+		"upvotes":16,
+		"downvotes":7,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Kaiwalya Koparkar",
+		"questionTitle": "This is a question 8",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Jobs",
+		"upvotes":53,
+		"downvotes":27,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Kaiwalya Koparkar",
+		"questionTitle": "This is a question 9",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Sports",
+		"upvotes":53,
+		"downvotes":7,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Kaiwalya Koparkar",
+		"questionTitle": "This is a question 10",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Events",
+		"upvotes":503,
+		"downvotes":7,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Pragati More",
+		"questionTitle": "This is a question 11",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Sports",
+		"upvotes":32,
+		"downvotes":17,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Pragati More",
+		"questionTitle": "This is a question 12",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Events",
+		"upvotes":76,
+		"downvotes":27,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Mrunaal Chincholikar",
+		"questionTitle": "This is a question 13",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Jobs",
+		"upvotes":63,
+		"downvotes":24,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	},
+	{
+		"userQuestioner": "Mrunaal Chincholikar",
+		"questionTitle": "This is a question 14",
+		"questionDescription": "This is the description of the question",
+		"questionTag": "Sports",
+		"upvotes":53,
+		"downvotes":27,
+		"answers": ["61dd46f03cecd228e9df643a", "61dd46f03cecd228e9df6439"]
+
+	}
+]
