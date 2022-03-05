@@ -1,0 +1,50 @@
+[
+	{
+		"userAnswerer": "Vadanya Wabale",
+		"answer": "This is the answer 1",
+		"upvotes": 16,
+		"downvotes": 3
+	},
+	{
+		"userAnswerer": "Mrunaal Chincholikar",
+		"answer": "This is the answer 2",
+		"upvotes": 34,
+		"downvotes": 1
+	},
+	{
+		"userAnswerer": "Pragati More",
+		"answer": "This is the answer 3",
+		"upvotes": 23,
+		"downvotes": 2
+	},
+	{
+		"userAnswerer": "Kaiwalya Koparkar",
+		"answer": "This is the answer 4",
+		"upvotes": 31,
+		"downvotes": 5
+	},
+	{
+		"userAnswerer": "Mrunaal Chincholikar",
+		"answer": "This is the answer 5",
+		"upvotes": 27,
+		"downvotes": 4
+	},
+	{
+		"userAnswerer": "Vadanya Wabale",
+		"answer": "This is the answer 6",
+		"upvotes": 16,
+		"downvotes": 3
+	},
+	{
+		"userAnswerer": "Pragati More",
+		"answer": "This is the answer 7",
+		"upvotes": 38,
+		"downvotes": 8
+	},
+	{
+		"userAnswerer": "Kaiwalya Koparkar",
+		"answer": "This is the answer 8",
+		"upvotes": 43,
+		"downvotes": 13
+	}
+]
