@@ -52,7 +52,7 @@ export default function Navbar() {
                     >
 
                         {/*Left side of navbar*/}
-                        <Grid item xs={10.5}>
+                        <Grid item xs={9}>
                             <Box
                                 sx={{
                                     display: 'flex',
@@ -60,18 +60,29 @@ export default function Navbar() {
                                     mr:2
                                 }}
                             >
-                                <Typography 
-                                    variant="h6" 
-                                    component="h6" 
-                                    sx={{ 
-                                        mt:1.5,
-                                        mr:5,
-                                        ml:3
+                                <Box 
+                                    sx={{
+                                        width: 120,
+                                        height: 50,
+                                        mr:1.5,
+                                        mt:0.3,
+                                        backgroundColor: 'secondary.main',
+                                        borderRadius: 10
                                     }}
-                                    color="primary"
-                                    >
-                                    QuFoCo
-                                </Typography>
+                                >
+                                    <Typography 
+                                        variant="h6" 
+                                        component="h6" 
+                                        sx={{ 
+                                            mt:1.17,
+                                            mr:5,
+                                            ml:3
+                                        }}
+                                        color="#ffff"
+                                        >
+                                        QuFoCo
+                                    </Typography>
+                                </Box>
 
                                 <IconButton 
                                     color="secondary" 
@@ -127,6 +138,12 @@ export default function Navbar() {
                                 </IconButton>
                             </Box>
                         </Grid>
+
+                        <Grid 
+                            item 
+                            xs={1.5}
+                            direction="column"
+                        />
 
                         {/*right side of navbar*/}
                         <Grid 
