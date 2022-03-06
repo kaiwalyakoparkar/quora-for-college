@@ -4,10 +4,16 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
 
+//Importing Internal 
+import LeftHome from './HomeLeftContainer/HomeLeftContainer';
+import CenterHome from './HomeCenterContainer/HomeCenterContainer';
+import RightHome from './HomeRightContainer/HomeRightContainer';
+
 //Creating styles
 const customStyle = makeStyles({
     section: {
-        mr: 2
+        mr: 2,
+        textAlign: 'center'
     }
 })
 
@@ -21,36 +27,36 @@ export default function Body () {
             <Box 
                 sx={{ 
                     flexGrow: 1,
-                    mt:3
+                    mt:4
                 }}
             >
                 <Grid container spacing={5}>
                     <Grid item xs={2.5} className={classes.section}>
-                        <Typography
+                        <LeftHome />
+                        {/* <Typography
                             variant="h5" 
                             component="h5"
-                            align="center"
                         >
                             Left
-                        </Typography>
+                        </Typography> */}
                     </Grid>
                     <Grid item xs={7} className={classes.section}>
-                        <Typography
+                        {/* <Typography
                             variant="h5" 
                             component="h5"
-                            align="center"
                         >
                             Center
-                        </Typography>
+                        </Typography> */}
+                        <CenterHome />
                     </Grid>
                     <Grid item xs={2.5} className={classes.section}>
-                        <Typography
+                        {/* <Typography
                             variant="h5" 
                             component="h5"
-                            align="center"
                         >
                             Right
-                        </Typography>
+                        </Typography> */}
+                        <RightHome />
                     </Grid>
                 </Grid>
             </Box>

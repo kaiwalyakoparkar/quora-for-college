@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 
 //File Imports
 import Navbar from "../Navbar/Navbar";
-import Body from "../Body/Body";
+import Home from "../Home/Home";
+
 
 //Creating custom theme for the project
 //Creating override object
@@ -34,7 +35,7 @@ export default function App() {
             <Navbar />
 
             {/*The application body will fall under this div*/}
-            <Body />
+            <Home />
           </Box>
         </ThemeProvider>
     )
