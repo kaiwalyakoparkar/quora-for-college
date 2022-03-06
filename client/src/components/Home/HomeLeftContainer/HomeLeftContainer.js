@@ -6,9 +6,19 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
 
+//Importing internal files
+import user_1 from '../../../data/images/Mountain1.jpg'
+import user_2 from '../../../data/images/Mountain2.jpeg'
+import user_3 from '../../../data/images/Mountain3.jpg'
+import user_4 from '../../../data/images/Mountain4.jpg'
 
-
+//Defining Styles
 const customStyle = makeStyles({
     root: {
         width: 270,
@@ -18,8 +28,7 @@ const customStyle = makeStyles({
     icons: {
         '& svg': {
             fontSize: 32
-        },
-        // color:'#6563ff'
+        }
     }
 })
 
@@ -36,7 +45,7 @@ export default function HomeLeftContainer () {
                 }}
                 className={classes.root}
             >
-                <Box>
+                <Box sx={{mb: 1}}>
                     <Paper
                         component="form"
                         sx={{ 
@@ -64,6 +73,39 @@ export default function HomeLeftContainer () {
                             <SearchIcon />
                         </IconButton>
                     </Paper>
+                </Box>
+
+                <Box>
+                    <div>
+                        
+                    <List sx={{ width: '100%', maxWidth: 350, bgcolor: 'background.paper', borderRadius: 5 }}>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar alt="Kaiwalya Koparkar" src={user_1} />
+                            </ListItemAvatar>
+                            <ListItemText primary="Kaiwalya Koparkar"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar alt="Vadanya Wabale" src={user_2} />
+                            </ListItemAvatar>
+                            <ListItemText primary="Vadanya Wabale" />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar alt="Pragati More" src={user_3} />
+                            </ListItemAvatar>
+                            <ListItemText primary="Pragati More" />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemAvatar>
+                                <Avatar alt="Mrunaal Chincholikar" src={user_4} />
+                            </ListItemAvatar>
+                            <ListItemText primary="Mrunaal Chincholikar"/>
+                        </ListItem>
+                    </List>
+
+                    </div>
                 </Box>
 
             </Box>
