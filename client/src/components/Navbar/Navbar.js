@@ -22,6 +22,11 @@ import user_image from '../../data/images/default_user.png';
 const customStyle = makeStyles({
     navbar: {
         borderRadius: 15
+    },
+    icons: {
+        '& svg': {
+            fontSize: 32
+        }
     }
 })
 
@@ -59,10 +64,11 @@ export default function Navbar() {
                                     variant="h6" 
                                     component="h6" 
                                     sx={{ 
-                                        mt:1,
+                                        mt:1.5,
                                         mr:5,
                                         ml:3
                                     }}
+                                    color="primary"
                                     >
                                     QuFoCo
                                 </Typography>
@@ -76,6 +82,7 @@ export default function Navbar() {
                                     sx={{
                                         mr:2
                                     }}
+                                    className={classes.icons}
                                 >
                                     <HomeOutlinedIcon />
                                 </IconButton>
@@ -88,6 +95,7 @@ export default function Navbar() {
                                     sx={{
                                         mr:2
                                     }}
+                                    className={classes.icons}
                                 >
                                     <ExploreOutlinedIcon />
                                 </IconButton>
@@ -100,6 +108,7 @@ export default function Navbar() {
                                     sx={{
                                         mr:2
                                     }}
+                                    className={classes.icons}
                                 >
                                     <FormatListBulletedOutlinedIcon />
                                 </IconButton>
@@ -112,6 +121,7 @@ export default function Navbar() {
                                     sx={{
                                         mr:2
                                     }}
+                                    className={classes.icons}
                                 >
                                     <ChatBubbleOutlineIcon />
                                 </IconButton>
@@ -142,6 +152,7 @@ export default function Navbar() {
                                         mr:1,
                                         ml:4
                                     }}
+                                    className={classes.icons}
                                 >
                                     <Badge color="error" variant="dot">
                                         <NotificationsNoneOutlinedIcon />
@@ -151,7 +162,7 @@ export default function Navbar() {
                                     alt="Default User"
                                     src={user_image} 
                                     sx={{
-                                        mt:0.5,
+                                        mt:1,
                                         ml:1.5
                                     }}
                                 />
