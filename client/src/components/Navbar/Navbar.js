@@ -1,3 +1,4 @@
+//Importing external files/modules
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -5,6 +6,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -13,13 +15,23 @@ import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBullet
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 
+//Importing internal files/modules
+import user_image from '../../data/images/default_user.png'
+
 export default function Navbar() {
+
     return (
         <div>
             {/*<h1>This is navbar</h1>*/}
             <AppBar position="static" color="primary">
                 <Toolbar>
-                    <Grid container spacing={2}>
+                    <Grid 
+                        container 
+                        spacing={2}
+                        sx={{
+                            flexGrow: 1
+                        }}
+                    >
 
                         {/*Left side of navbar*/}
                         <Grid item xs={10.5}>
@@ -103,6 +115,7 @@ export default function Navbar() {
                                 sx={{
                                     display: 'flex',
                                     flexDirection: 'row',
+                                    justifyContent: 'left',
                                     mr:2
                                 }}
                             >
@@ -113,13 +126,22 @@ export default function Navbar() {
                                     aria-label="notification" 
                                     component="span"
                                     sx={{
-                                        mr:2
+                                        mr:1,
+                                        ml:4
                                     }}
                                 >
                                     <Badge color="error" variant="dot">
                                         <NotificationsNoneOutlinedIcon />
                                     </Badge>
                                 </IconButton>
+                                <Avatar 
+                                    alt="Default User"
+                                    src={user_image} 
+                                    sx={{
+                                        mt:0.5,
+                                        ml:1.5
+                                    }}
+                                />
                             </Box>
                         </Grid>
 
