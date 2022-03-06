@@ -67,7 +67,7 @@ export default function UpperCard () {
                         sx={{ p: '10px' }} 
                         aria-label="search"
                         className={classes.icons}
-                        >
+                    >
                         <SearchIcon />
                     </IconButton>
                 </Paper>
