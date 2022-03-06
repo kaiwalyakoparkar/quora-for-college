@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -21,7 +22,7 @@ export default function Navbar() {
                     <Grid container spacing={2}>
 
                         {/*Left side of navbar*/}
-                        <Grid item xs={10}>
+                        <Grid item xs={10.5}>
                             <Box
                                 sx={{
                                     display: 'flex',
@@ -34,7 +35,8 @@ export default function Navbar() {
                                     component="h6" 
                                     sx={{ 
                                         mt:1,
-                                        mr:5
+                                        mr:5,
+                                        ml:3
                                     }}
                                     >
                                     QuFoCo
@@ -46,6 +48,9 @@ export default function Navbar() {
                                     edge="start" 
                                     aria-label="home" 
                                     component="span"
+                                    sx={{
+                                        mr:2
+                                    }}
                                 >
                                     <HomeOutlinedIcon />
                                 </IconButton>
@@ -55,6 +60,9 @@ export default function Navbar() {
                                     edge="start" 
                                     aria-label="explore" 
                                     component="span"
+                                    sx={{
+                                        mr:2
+                                    }}
                                 >
                                     <ExploreOutlinedIcon />
                                 </IconButton>
@@ -64,6 +72,9 @@ export default function Navbar() {
                                     edge="start" 
                                     aria-label="list" 
                                     component="span"
+                                    sx={{
+                                        mr:2
+                                    }}
                                 >
                                     <FormatListBulletedOutlinedIcon />
                                 </IconButton>
@@ -73,6 +84,9 @@ export default function Navbar() {
                                     edge="start" 
                                     aria-label="chat" 
                                     component="span"
+                                    sx={{
+                                        mr:2
+                                    }}
                                 >
                                     <ChatBubbleOutlineIcon />
                                 </IconButton>
@@ -80,16 +94,33 @@ export default function Navbar() {
                         </Grid>
 
                         {/*right side of navbar*/}
-                        <Grid item xs={2}>
-                            <IconButton 
+                        <Grid 
+                            item 
+                            xs={1.5}
+                            direction="column"
+                        >   
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    mr:2
+                                }}
+                            >
+                                <IconButton 
                                     color="secondary" 
                                     size="large" 
                                     edge="start" 
                                     aria-label="notification" 
                                     component="span"
+                                    sx={{
+                                        mr:2
+                                    }}
                                 >
-                                <NotificationsNoneOutlinedIcon />
-                            </IconButton>
+                                    <Badge color="error" variant="dot">
+                                        <NotificationsNoneOutlinedIcon />
+                                    </Badge>
+                                </IconButton>
+                            </Box>
                         </Grid>
 
                     </Grid>
