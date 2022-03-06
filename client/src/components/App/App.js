@@ -34,7 +34,7 @@ export default function App() {
             {/*Rendering the Navbar function*/}
             <Navbar />
 
-            {/*The application body will fall under this div*/}
+            {/*The application home will fall under this */}
             <Home />
           </Box>
         </ThemeProvider>

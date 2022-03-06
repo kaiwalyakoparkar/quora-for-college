@@ -8,7 +8,6 @@ import Grid from '@mui/material/Grid';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
@@ -26,7 +25,8 @@ const customStyle = makeStyles({
     icons: {
         '& svg': {
             fontSize: 32
-        }
+        },
+        // color:'#6563ff'
     }
 })
 
