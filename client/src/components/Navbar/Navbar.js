@@ -2,7 +2,7 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { makeStyles } from '@mui/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Badge from '@mui/material/Badge';
@@ -16,14 +16,27 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 
 //Importing internal files/modules
-import user_image from '../../data/images/default_user.png'
+import user_image from '../../data/images/default_user.png';
+
+//Creating styles
+const customStyle = makeStyles({
+    navbar: {
+        borderRadius: 15
+    }
+})
 
 export default function Navbar() {
+
+    const classes = customStyle();
 
     return (
         <div>
             {/*<h1>This is navbar</h1>*/}
-            <AppBar position="static" color="primary">
+            <AppBar 
+                position="static" 
+                color="primary"
+                className={classes.navbar}
+            >
                 <Toolbar>
                     <Grid 
                         container 
