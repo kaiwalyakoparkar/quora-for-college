@@ -2,8 +2,22 @@
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
+import Box from '@mui/material/Box';
+import { makeStyles } from '@mui/styles';
+
+//Defining Styles
+const customStyle = makeStyles({
+    root: {
+        width: 250,
+        height: 300,
+        backgroundColor: '#ffffff',
+    }
+})
 
 export default function HomeRightContainer () {
+
+    const classes = customStyle();
+
     return (
         <div>
             <Button 
@@ -25,6 +39,17 @@ export default function HomeRightContainer () {
                     Ask New Topic
                 </Typography>
             </Button>
+
+            <Box
+                sx={{
+                    mt: 3,
+                    borderRadius: 5,
+                    boxShadow: 5
+                }}
+                className={classes.root}
+            >
+                
+            </Box>
         </div>
     )
 }
