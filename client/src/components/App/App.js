@@ -21,6 +21,11 @@ const customTheme = createTheme({
       success: {
         main: '#29AF7C'
       }
+    },
+    typography: {
+      button: {
+        textTransform: 'none'
+      }
     }
 })
 
