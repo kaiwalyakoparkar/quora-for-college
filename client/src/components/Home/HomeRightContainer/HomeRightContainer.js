@@ -8,18 +8,22 @@ export default function HomeRightContainer () {
         <div>
             <Button 
                 variant="contained" 
-                startIcon={<AddIcon />}
+                startIcon={<AddIcon size="large"  style={{ fontSize: 40 }} />}
                 sx={{
                     backgroundColor: 'secondary.main',
-                    width: 305,
+                    width: "17vw",
                     height: 50,
                     borderRadius: 3,
-                    // justifyContent: 'left',
                     fontWeight: 600
                 }}
                 style={{color:"#ffffff"}}
             >
-                Ask New Topic
+                <Typography
+                    variant="h6" 
+                    component="h6"
+                >
+                    Ask New Topic
+                </Typography>
             </Button>
         </div>
     )
