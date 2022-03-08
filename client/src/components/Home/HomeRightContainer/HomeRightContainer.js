@@ -18,7 +18,7 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 //Defining Styles
 const customStyle = makeStyles({
     root: {
-        width: 250,
+        width: "17.8vw", 
         height: 320,
         backgroundColor: '#ffffff'
     },
@@ -38,7 +38,7 @@ export default function HomeRightContainer () {
                 startIcon={<AddIcon size="large"  style={{ fontSize: 40 }} />}
                 sx={{
                     backgroundColor: 'secondary.main',
-                    width: "17vw",
+                    width: "17.4vw",
                     height: 50,
                     borderRadius: 3,
                     fontWeight: 600
