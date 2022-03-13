@@ -8,6 +8,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
 import OutlinedFlagIcon from '@mui/icons-material/OutlinedFlag';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
@@ -21,6 +22,12 @@ const customStyle = makeStyles({
         width: "17.8vw", 
         height: 320,
         backgroundColor: '#ffffff'
+    },
+    secondCard: {
+        width: "17.8vw", 
+        height: 250,
+        backgroundColor: '#ffffff'
+        
     },
     list: {
         mr: 2
@@ -106,6 +113,54 @@ export default function HomeRightContainer () {
                         <ListItemText primary="Other"/>
                     </ListItem>
                 </List>
+            </Box>
+            <Box
+                sx={{
+                    mt: 3,
+                    borderRadius: 5,
+                    boxShadow: 5
+                }}
+                className={classes.secondCard}
+            >
+                <Grid 
+                    container 
+                    sx={{
+                        mr: 2,
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "center"
+                    }}
+                >
+                    <List sx={{ width: '93%', width: "auto" }}>
+                        <ListItem>
+                            <ListItemText primary="Courses"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="Courses"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="Courses"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="Courses"/>
+                        </ListItem>
+                    </List>
+
+                    <List sx={{ width: '93%', width: "auto" }}>
+                        <ListItem>
+                            <ListItemText primary="Courses"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="Courses"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="Courses"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="Courses"/>
+                        </ListItem>
+                    </List>
+                </Grid>
             </Box>
         </div>
     )
