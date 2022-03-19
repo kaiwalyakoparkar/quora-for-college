@@ -161,6 +161,12 @@ export default function HomeRightContainer () {
                         </ListItem>
                     </List>
                 </Grid>
+                <Stack 
+                    direction="row" 
+                    spacing={2}
+                >
+                    
+                </Stack>
             </Box>
         </div>
     )
