@@ -256,10 +256,10 @@ export default function HomeRightContainer () {
                         justifyContent: "center"
                     }}
                 >
-                    <GitHubIcon />
-                    <InstagramIcon />
-                    <LinkedInIcon />
-                    <TwitterIcon />
+                    <GitHubIcon style={{ color: '#9e9e9e' }}/>
+                    <InstagramIcon style={{ color: '#9e9e9e' }}/>
+                    <LinkedInIcon style={{ color: '#9e9e9e' }}/>
+                    <TwitterIcon style={{ color: '#9e9e9e' }}/>
                 </Stack>
             </Box>
         </div>
