@@ -168,8 +168,16 @@ export default function HomeRightContainer () {
                 <Stack 
                     direction="row" 
                     spacing={2}
+                    sx={{
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "center"
+                    }}
                 >
-                    
+                    <GitHubIcon />
+                    <InstagramIcon />
+                    <LinkedInIcon />
+                    <TwitterIcon />
                 </Stack>
             </Box>
         </div>
