@@ -10,6 +10,10 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import OutlinedFlagIcon from '@mui/icons-material/OutlinedFlag';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
@@ -112,6 +116,7 @@ export default function HomeRightContainer () {
                         <ArchiveOutlinedIcon sx={{mr: 2}} />
                         <ListItemText primary="Other"/>
                     </ListItem>
+                    
                 </List>
             </Box>
             <Box
@@ -133,34 +138,129 @@ export default function HomeRightContainer () {
                 >
                     <List sx={{ width: '93%', width: "auto" }}>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Help
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        About
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Contact
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Terms
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
+
                     </List>
 
                     <List sx={{ width: '93%', width: "auto" }}>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Careers
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Updates
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Advertise
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Sponsor
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                     </List>
                 </Grid>
+                <Stack 
+                    direction="row" 
+                    spacing={2}
+                    sx={{
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "center"
+                    }}
+                >
+                    <GitHubIcon style={{ color: '#9e9e9e' }}/>
+                    <InstagramIcon style={{ color: '#9e9e9e' }}/>
+                    <LinkedInIcon style={{ color: '#9e9e9e' }}/>
+                    <TwitterIcon style={{ color: '#9e9e9e' }}/>
+                </Stack>
             </Box>
         </div>
     )
