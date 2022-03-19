@@ -116,6 +116,7 @@ export default function HomeRightContainer () {
                         <ArchiveOutlinedIcon sx={{mr: 2}} />
                         <ListItemText primary="Other"/>
                     </ListItem>
+                    
                 </List>
             </Box>
             <Box
@@ -137,31 +138,112 @@ export default function HomeRightContainer () {
                 >
                     <List sx={{ width: '93%', width: "auto" }}>
                         <ListItem>
-                            <ListItemText primary="Help"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Help
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="About"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        About
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Contact"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Contact
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Terms"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Terms
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
+
                     </List>
 
                     <List sx={{ width: '93%', width: "auto" }}>
                         <ListItem>
-                            <ListItemText primary="Careers"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Careers
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Updates"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Updates
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Advertise"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Advertise
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Sponsor"/>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography 
+                                        type="body2" 
+                                        style={{ color: '#9E9E9E' }}
+                                    >
+                                        Sponsor
+                                    </Typography>
+                                }
+                            />
                         </ListItem>
                     </List>
                 </Grid>
