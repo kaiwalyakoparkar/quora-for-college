@@ -137,31 +137,31 @@ export default function HomeRightContainer () {
                 >
                     <List sx={{ width: '93%', width: "auto" }}>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText primary="Help"/>
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText primary="About"/>
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText primary="Contact"/>
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText primary="Terms"/>
                         </ListItem>
                     </List>
 
                     <List sx={{ width: '93%', width: "auto" }}>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText primary="Careers"/>
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText primary="Updates"/>
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText primary="Advertise"/>
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Courses"/>
+                            <ListItemText primary="Sponsor"/>
                         </ListItem>
                     </List>
                 </Grid>
