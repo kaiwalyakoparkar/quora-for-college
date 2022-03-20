@@ -101,11 +101,13 @@ export default function QACard () {
                                             m:2
                                         }}
                                     >
-                                        <ArrowUpwardIcon size="large"/>
+                                        <ArrowUpwardIcon size="large" sx={{
+                                            color: "#6563ff"
+                                        }}/>
                                         <Typography 
                                             style={{fontWeight: 600}}
                                             sx={{
-                                                color: "primary"
+                                                color: "#6563ff"
                                             }}
                                         >
                                             51
@@ -148,9 +150,7 @@ export default function QACard () {
                     >
                         <Box
                             sx={{
-                                borderRadius: 5,
-                                boxShadow: 5,
-                                justifyContent:"center"
+                                pl: 4.5
                             }}
                             className={classes.bottomCardLayout}
                         >
@@ -164,13 +164,46 @@ export default function QACard () {
                                         mr: 2
                                     }}
                                 >
-                                    <Item>xs=6</Item>
+                                    <Stack
+                                        direction="row"
+                                        alignItems="center"
+                                    >
+                                        <Avatar />
+                                        <Typography
+                                            sx={{
+                                                ml: 2,
+                                                mr: 1,
+                                                color: "#9e9e9e"
+                                            }}
+                                        >
+                                            Published by 
+                                        </Typography>
+                                        <Typography sx={{
+                                            color: "#6563ff"
+                                        }}>
+                                            Kaiwalya Koparkar
+                                        </Typography>
+                                    </Stack>
                                 </Grid>
                                 <Grid
                                     item
                                     xs={2}
                                 >
-                                    <Item>xs=6</Item>
+                                    <Stack
+                                        direction="row"
+                                        alignItems="center"
+                                        spacing={2}
+                                        p={1}
+                                    >
+                                        <ChatBubbleOutlineIcon sx={{color: "#9e9e9e"}}/>
+                                        <Typography
+                                            sx={{
+                                                color: "#9e9e9e"
+                                            }}
+                                        >
+                                            58
+                                        </Typography>
+                                    </Stack> 
                                 </Grid>
                             </Grid>
                         </Box>
