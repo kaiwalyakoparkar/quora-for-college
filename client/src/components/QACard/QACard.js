@@ -9,23 +9,6 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Avatar from '@mui/material/Avatar';
 import { makeStyles } from '@mui/styles';
 
-
-//Trial purpose only
-
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-}));
-
-//
-
-
 //Creating custom styles
 const customStyle = makeStyles({
     root: {
@@ -62,7 +45,8 @@ export default function QACard () {
                 sx={{
                     p: 2.5,
                     borderRadius: 5,
-                    boxShadow: 5
+                    boxShadow: 5,
+                    mb: 3
                 }}
                 className={classes.root}
             >
