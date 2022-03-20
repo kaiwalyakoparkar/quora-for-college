@@ -1,15 +1,23 @@
 //Importing external files/modules
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 
+
+//Importing internal files/modules
+import qdata from '../../../data/dev-data/questions.json';
+import QACard from '../../QACard/QACard';
+
+//Main container function
 export default function HomeCenterContainer () {
+    console.log(qdata[0])
     return (
         <div>
-            <Typography
-                variant="h5" 
-                component="h5"
-            >
-                Center
-            </Typography>
+            <Stack >
+                {qdata.map(ele => (
+                    <QACard/>
+                ))}
+            </Stack>
         </div>
     )
 }
