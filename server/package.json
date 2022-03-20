@@ -30,7 +30,6 @@
     "compression": "^1.7.4",
     "concurrently": "^7.0.0",
     "cors": "^2.8.5",
-    "crypto": "^1.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "express-mongo-sanitize": "^2.1.0",
