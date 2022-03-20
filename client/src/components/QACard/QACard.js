@@ -79,8 +79,7 @@ export default function QACard () {
                     >
                         <Box
                             sx={{
-                                borderRadius: 5,
-                                boxShadow: 5
+                                borderRadius: 5
                             }}
                             className={classes.internalCardLayout}
                         >
@@ -119,12 +118,14 @@ export default function QACard () {
                                     item
                                     xs
                                     textAlign="left"
+                                    pt={4}
                                 >
                                     <Stack
-                                        spacing={2}
+                                        spacing={3}
                                     >
                                         <Typography
-                                        
+                                            variant="h5" 
+                                            component="h5"
                                         >
                                             This is the question
                                         </Typography>
