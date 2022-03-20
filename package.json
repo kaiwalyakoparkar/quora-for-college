@@ -4,7 +4,7 @@
   "description": "This is an open forum for college students to communicate with each other",
   "main": "start.js",
   "scripts": {
-    "start": "node start server:client",
+    "start": "npm i && node start server:client",
     "server:client": "node start server:client",
     "client": "node start client",
     "server": "node start server",
