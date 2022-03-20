@@ -10,13 +10,22 @@ import QACard from '../../QACard/QACard';
 
 //Main container function
 export default function HomeCenterContainer () {
-    console.log(qdata[0])
+    // console.log(qdata[0])
     return (
         <div>
             <Stack >
-                {qdata.map(ele => (
-                    <QACard/>
-                ))}
+                {
+                    qdata.map(ele => (
+                        <QACard
+                            title={ele.questionTitle}
+                            desc={ele.questionDescription}
+                            upv={ele.upvotes}
+                            downv={ele.downvotes}
+                            ans={ele.answers}
+                            usr={ele.userQuestioner}
+                        />
+                    ))
+                }
             </Stack>
         </div>
     )
