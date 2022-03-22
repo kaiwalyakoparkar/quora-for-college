@@ -91,15 +91,15 @@ usersSchema.methods.passwordChangedAfter = function(tokenTimestamp) {
 	return false;
 }
 
-//Creating token for resetting password
-usersSchema.methods.createPasswordResetToken = function() {
-	const resetToken = crypto.randomBytes(32).toString('hex');
+//Creating token for resetting password (crypto package not working anymore)
+// usersSchema.methods.createPasswordResetToken = function() {
+// 	const resetToken = crypto.randomBytes(32).toString('hex');
 
-	this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
-	this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+// 	this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+// 	this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 
-	return resetToken;
-}
+// 	return resetToken;
+// }
 
 //This will filter only active users
 usersSchema.pre(/^find/, function(next) {

@@ -29,17 +29,12 @@ const customStyle = makeStyles({
 })
 
 //Main QACard function
-export default function QACard () {
+export default function QACard (props) {
     const classes = customStyle();
+    const upv = props.upv
+    const downv = props.downv
     return (
         <div>
-            
-            {/* <Typography
-                variant="h5" 
-                component="h5"
-                >
-                Lets go
-            </Typography> */}
 
             <Box
                 sx={{
@@ -94,7 +89,7 @@ export default function QACard () {
                                                 color: "#6563ff"
                                             }}
                                         >
-                                            51
+                                            {props.upv}
                                         </Typography>
                                         <ArrowDownwardIcon size="large"/>
                                     </Stack>
@@ -113,14 +108,14 @@ export default function QACard () {
                                             variant="h5" 
                                             component="h5"
                                         >
-                                            This is the question
+                                            {props.title}
                                         </Typography>
                                         <Typography
                                             sx={{
                                                 color: "#9e9e9e"
                                             }}
                                         >
-                                            This is description
+                                            {props.desc}
                                         </Typography>
                                     </Stack>
                                 </Grid>
@@ -165,7 +160,7 @@ export default function QACard () {
                                         <Typography sx={{
                                             color: "#6563ff"
                                         }}>
-                                            Kaiwalya Koparkar
+                                            {props.usr}
                                         </Typography>
                                     </Stack>
                                 </Grid>
@@ -185,7 +180,7 @@ export default function QACard () {
                                                 color: "#9e9e9e"
                                             }}
                                         >
-                                            58
+                                            {props.ans.length}
                                         </Typography>
                                     </Stack> 
                                 </Grid>
