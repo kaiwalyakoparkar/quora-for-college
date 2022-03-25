@@ -23,7 +23,7 @@ mongoose.connect(DB, {
 	log(chalk.cyan('🔐 Database Connected Successfully'));
 });
 
-app.listen(PORT,() => {
+let server = app.listen(PORT,() => {
 	log(chalk.cyan(`🏃 Server has started on ${DOMAIN}:${PORT}/`));
 });
 
