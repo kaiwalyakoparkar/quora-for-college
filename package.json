@@ -7,8 +7,7 @@
     "start": "npm i && node start server:client",
     "server:client": "node start server:client",
     "client": "node start client",
-    "server": "node start server",
-    "prepare": "husky install"
+    "server": "node start server"
   },
   "repository": {
     "type": "git",
