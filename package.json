@@ -1,59 +1,58 @@
 {
-  "name": "quora-for-college",
-  "version": "1.57.0",
-  "description": "This is an open forum for college students to communicate with each other",
-  "main": "start.js",
+  "name": "quora-for-college-api",
+  "version": "1.0.0",
+  "description": "This is the api for Quora for College API",
+  "main": "server.js",
   "scripts": {
-    "start": "npm install && node start server:client",
-    "server:client": "node start server:client",
-    "client": "node start client",
-    "server": "node start server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kaiwalyakoparkar/quora-for-college.git"
+    "start": "npm i && nodemon server.js",
+    "start:dev": "NODE_ENV=development nodemon server.js",
+    "tests": "concurrently -s first -k \"node ./server.js\" \"sleep 1 && npm test\"",
+    "test": "cucumber-js -p default",
+    "importQuestionsData": "cd data/dev-data && node import-and-delete-data-script.js --import --questions",
+    "importAnswersData": "cd data/dev-data && node import-and-delete-data-script.js --import --answers",
+    "deleteQuestionsData": "cd data/dev-data && node import-and-delete-data-script.js --delete --questions",
+    "deleteAnswersData": "cd data/dev-data && node import-and-delete-data-script.js --delete --answers",
+    "prepare": "husky install"
   },
   "keywords": [
-    "node",
+    "nodejs",
     "express",
     "mongodb",
-    "reactjs",
-    "mern",
+    "mongoose",
     "docker",
     "kubernetes"
   ],
   "author": "Kaiwalya Koparkar",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kaiwalyakoparkar/quora-for-college/issues"
-  },
-  "homepage": "https://github.com/kaiwalyakoparkar/quora-for-college#readme",
   "dependencies": {
+    "@cucumber/cucumber": "^8.0.0-rc.1",
+    "bcryptjs": "^2.4.3",
     "chalk": "^4.1.2",
-    "concurrently": "^6.5.1",
+    "compression": "^1.7.4",
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "figlet": "^1.5.2",
-    "kill": "^0.0.2",
-    "lodash": "^4.17.21",
-    "material-ui": "^0.20.2",
-    "ngrok": "^4.2.2",
-    "path": "^0.12.7",
-    "react-router-dom": "^6.1.0"
+    "express": "^4.17.2",
+    "express-mongo-sanitize": "^2.1.0",
+    "express-rate-limit": "^6.1.0",
+    "helmet": "^5.0.1",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.5",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "pactum": "^3.1.0",
+    "validator": "^13.7.0",
+    "xss-clean": "^0.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.1",
-    "@commitlint/config-conventional": "^16.0.0",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.0",
-    "lint-staged": "^12.1.4",
-    "prettier": "^2.5.1"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write"
-    ]
+    "lint-staged": "^12.3.7",
+    "prettier": "^2.6.2"
   }
 }
