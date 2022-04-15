@@ -1,11 +1,11 @@
 FROM node:alpine
 
-COPY . /quoraforcollege
+COPY . /quoraforcollege/
 
-WORKDIR /quoraforcollege
+WORKDIR /quoraforcollege/
 
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 8080
 
 CMD ["npm", "start"]
