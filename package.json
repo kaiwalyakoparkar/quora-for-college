@@ -1,6 +1,6 @@
 {
   "name": "quora-for-college-api",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "This is the api for Quora for College API",
   "main": "server.js",
   "scripts": {
