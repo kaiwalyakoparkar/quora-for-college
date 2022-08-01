@@ -22,7 +22,7 @@ We are trying to develop a web application that would be sort of Quora but speci
 
 ## 🍴 Forking/Clonning and running api Scripts -
 1. Follow the forking, clonning and local environment setup steps as [mentioned here](https://github.com/kaiwalyakoparkar/quora-for-college/tree/main/server/server#Project-setup--contribution-steps)
-2. Navigat to `/server` folder
+2. Navigate to `/server` folder
 3. Run `npm start` or `npm run start:dev` to start prod or dev environment as you like
 4. Go to your api testing tool or application where you need to use this api
 5. Implement the [Routes Available](https://github.com/kaiwalyakoparkar/quora-for-college/tree/main/server/server#-routes-available--)
@@ -100,7 +100,7 @@ Gets specific question from large questions data. The question id here is given 
 An ideal request will look like
 `http://localhost:8080/api/v1/questions/61dd4b66875fa2ba15492c65`
 
-And ideal respons will look like
+And ideal response will look like
 ```json
 {
     "status": "Success",
@@ -354,7 +354,7 @@ Gets specific answer from large answers data. The answer id here is given by the
 An ideal request will look like
 `http://localhost:8080/api/v1/answers/61dd46f03cecd228e9df643a`
 
-And ideal respons will look like
+And ideal response will look like
 ```json
 {
     "status": "Success",
@@ -833,5 +833,5 @@ If you would like to contribute to this api please go ahead and read [COC](../CO
 
 11. Click on **Submit**
 
-12. Hurrey! You just did your contribution to this question 🎉
+12. Hurray! You just did your contribution to this question 🎉
 
